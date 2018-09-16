@@ -1,16 +1,19 @@
 <?php
-    namespace Controllers;
+    namespace App\Controllers;
 
     use PsrHttpMessageServerRequestInterface as Request;
     use PsrHttpMessageResponseInterface as Response;
-    use Models\User;
+    use App\Models\User;
 
     class DemoController{
 
-        public function users(Request $request, Response $response, $args)
+        private $view;
+        public function __construct($c){
+            $this->view = $c->view;
+        }
+        public function users($request, $response, $args)
         {
             $users = User::all();
-            print_r($users);
-            // $this->container->view->render($response, 'list-users.twig', $users);
+            $this->view->render($response, 'home.twig', [ 'users' => $users->toArray() ]);
         }
     }

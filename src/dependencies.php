@@ -9,6 +9,20 @@ $container['renderer'] = function ($c) {
     return new Slim\Views\PhpRenderer($settings['template_path']);
 };
 
+$container['view'] = function ($c) {
+    $settings = $c->get('settings')['renderer'];
+    $view = new \Slim\Views\Twig($settings['template_path'], [
+        'cache' => false
+    ]);
+
+    // Instantiate and add Slim specific extension
+    $basePath = rtrim(str_ireplace('index.php', '', $c->get('request')->getUri()->getBasePath()), '/');
+    $view->addExtension(new Slim\Views\TwigExtension($c->get('router'), $basePath));
+    // $view->addExtension (new App\Extension\HelperExt);
+
+    return $view;
+};
+
 // monolog
 $container['logger'] = function ($c) {
     $settings = $c->get('settings')['logger'];
@@ -18,18 +32,17 @@ $container['logger'] = function ($c) {
     return $logger;
 };
 
+$capsule = new \Illuminate\Database\Capsule\Manager;
+$capsule->addConnection($container->get('settings')['db']);
+
+$capsule->setAsGlobal();
+$capsule->bootEloquent();
+
 $container['db'] = function ($c) {
-    
-    $capsule = new \Illuminate\Database\Capsule\Manager;
-    $capsule->addConnection($c->get('settings')['logger']);
-
-    $capsule->setAsGlobal();
-    $capsule->bootEloquent();
-
-    return $capsule;
+   return $capsule;
 };
 
 
-$container[Controllers\DemoController::class] = function ($c) {
-    return new Controllers\DemoController($c);
+$container['DemoController'] = function ($c) {
+    return new \App\Controllers\DemoController($c);
 };

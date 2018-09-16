@@ -1,0 +1,230 @@
+    <script>
+        $(document).ready(function () {
+
+            setTimeout(function () {
+                $('body').addClass('loaded');
+            }, 1000);
+
+        });
+    </script>
+    
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "../connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+    <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+            //$('#careerFileUpload').inputFileText({ text: 'Select File' });
+            //$(":file").filestyle({ placeholder: "No file" });
+
+            $('#age-input').popover();
+            $('#income-input').popover();
+
+
+            $('#sidebar').affix({
+                offset: {
+                    top: 230,
+                    bottom: 580
+                }
+            });
+            var $body = $(document.body);
+            var navHeight = $('.navbar').outerHeight(true) + 10;
+
+            $body.scrollspy({
+                target: '#leftCol',
+                offset: navHeight
+            });
+
+
+            $('.closeall').click(function () {
+                $('.panel-collapse.in')
+                  .collapse('hide');
+            });
+            $('.openall').click(function () {
+                $('.panel-collapse:not(".in")')
+                  .collapse('show');
+            });
+            function faqchev(e) {
+                $(e.target)
+                    .prev('.panel-heading')
+                    .find("i.indicator")
+                    .toggleClass('glyphicon glyphicon-plus glyphicon glyphicon-minus');
+            }
+            $('.accordion-expand').on('hidden.bs.collapse', faqchev);
+            $('.accordion-expand').on('shown.bs.collapse', faqchev);
+
+
+            $('.flexslider').flexslider({
+                animation: "fade",
+                animationLoop: true,
+                slideshowSpeed: 7000,
+                animationSpeed: 600,
+                directionNav: false,
+                controlNav: false
+            });
+            $(window).scroll(function () {
+                if ($(window).scrollTop() >= 50) {
+                    $('.navbar-default-cstm').addClass("navbar-default-scroll");
+                    $('.logo').css("width", "150px");
+                    $('.navbar-collapse-cstm').css("margin", "5px 0px 0px");
+                    $('.navbar-brand-cstm').css("padding", "5px 0px 5px 5px");
+                    $('#pop1').popover();
+                }
+                else if ($(window).scrollTop() < 50) {
+                    $('.navbar-default-cstm').removeClass("navbar-default-scroll");
+                    $('.logo').css("width", "170px");
+                    $('.navbar-collapse-cstm').css("margin", "15px 0px");
+                    $('.navbar-brand-cstm').css("padding", "15px");
+                }
+
+            });
+            if ($(window).scrollTop() >= 50) {
+                $('.navbar-default-cstm').addClass("navbar-default-scroll");
+                $('.logo').css("width", "150px");
+                $('.navbar-collapse-cstm').css("margin", "5px 0px 0px");
+                $('.navbar-brand-cstm').css("padding", "5px 0px 5px 5px");
+                $('#pop1').popover();
+            }
+            $(window).scroll(function () {
+                if ($(window).scrollTop() >= 500) {
+                    $('#pop1').popover();
+                }
+            });
+
+            $('.bxslider').bxSlider({
+                mode: 'vertical',
+                speed: 500,
+                slideMargin: 0,
+                infiniteLoop: true,
+                pager: false,
+                controls: true,
+                minSlides: 3,
+                adaptiveHeight: true,
+                adaptivewidth: true,
+                auto: true
+            });
+
+
+        });
+    </script>
+    <script type="text/javascript">
+        $(function () {
+            $('#container').highcharts({
+                chart: {
+                    type: 'spline'
+                },
+                title: {
+                    text: 'Visualise the power of compounding'
+                },
+                subtitle: {
+                    text: 'Get an insight into your financial future with our Systematic Investment Plan (SIP) calculator.'
+                },
+                xAxis: {
+                    categories: ['1', '2', '3', '4', '5', '6',
+                        '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
+                },
+                yAxis: {
+                    title: {
+                        text: 'Money to Invest'
+                    },
+                    labels: {
+                        formatter: function () {
+                            return '₹ ' + this.value;
+                        }
+                    }
+                },
+                tooltip: {
+                    crosshairs: true,
+                    shared: true
+                },
+                plotOptions: {
+                    spline: {
+                        marker: {
+                            radius: 4,
+                            lineColor: '#666666',
+                            lineWidth: 1
+                        }
+                    }
+                },
+                series: [{
+                    name: 'Tokyo',
+                    marker: {
+                        symbol: 'square'
+                    },
+                    data: [700.0, 600.9, 900.5, 1400.5, 1800.2, 2100.5, 2500.2, {
+                        y: 2900.5,
+                        marker: {
+                            symbol: 'square'
+                        }
+                    }, 2300.3, 1800.3, 1300.9, 900.6]
+
+                }]
+            });
+        });
+    </script>
+    <script>
+        (function () {
+            [].slice.call(document.querySelectorAll('select.cs-select')).forEach(function (el) {
+                new SelectFx(el, {
+                    stickyPlaceholder: false
+                });
+            });
+        })();
+
+        function IsLanguageSelected() {
+            var languageCode = location.href.split('index.html')[3];
+            if (languageCode === undefined || languageCode == "") {
+                $("#LanguageOptionModel").modal('show');
+            }
+        }
+
+        $('ul.nav li.dropdown').hover(function () {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeIn(500);
+        }, function () {
+            $(this).find('.dropdown-menu').stop(true, true).delay(200).fadeOut(500);
+        });
+    </script>
+
+    <script type="text/javascript">
+
+        function registerID() {
+            var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+            var emailaddress = document.getElementById("newsletterId").value;
+            if (emailaddress != "" && emailReg.test(emailaddress)) {
+                $.ajax({
+                    type: "POST",
+                    url: "/Newsletter/InsertNewsletter", // the URL of the controller action method
+                    data: { formdata: emailaddress },
+                    dataType: 'json',// optional data
+                    success: function (req) {
+                        if (req.responseText == "True") {
+                            alert('You are now subscribed to our newsletter');
+                        }
+                        else if (req.responseText == "False") {
+                            alert('You already subscribed');
+                        }
+                        console.log(data);
+                        document.getElementById("newsletterId").value = "";
+                    },
+                    error: function (req, status, error) {
+                        if (req.responseText == "True") {
+                            alert('You are now subscribed to our newsletter');
+                        }
+                        else if (req.responseText == "False") {
+                            alert('You already subscribed');
+                        }
+
+                        document.getElementById("newsletterId").value = "";
+                    }
+                });
+            }
+            else {
+                alert('Valid email address is required');
+                $("#newsletterId").focus();
+            }
+        }
+    </script>

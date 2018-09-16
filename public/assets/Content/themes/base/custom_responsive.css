@@ -1,0 +1,759 @@
+﻿/*custom_responsive.css starts*/
+@media(max-width:310px){
+    .btn-try{
+        padding: 6px 20px 6px 6px !important
+    }
+    .btn-works{
+        padding: 6px 6px 6px 20px !important
+    }
+}
+@media(max-width:320px){
+    .captions h4 span{
+        font-size: 14px;
+    }
+    
+}
+@media(max-width:340px){
+    .homesec2graphsbox{
+        min-height: 1250px!important;
+    }
+    .divsip h3{
+        line-height: 35px;
+    }
+}
+@media(max-width:360px){
+    .signuplogin > a{
+        width: 100%;
+        float: left;
+    }
+    .loginsocial li img{
+        width: 220px!important;
+    }
+    .loginheading{
+        font-size: 20px;
+    }
+    .loginordiv{
+        margin-bottom: 30px!important;
+    }
+    .captions h4{
+        margin: 0px;
+    }
+}
+
+
+
+@media(max-width:400px){
+    .investearlyhead {
+        font-size: 18px!important;
+    }
+    .divsip h3 {
+        font-size: 18px;
+        margin: 5px 0 22px !important;
+    }
+    .moneyrequiredhome{
+        width: 110px!important;
+    }
+    .calcInput.incm-input {
+        font-size: 20px;
+        width: 134px !important;
+    }
+    
+    .timespanreqhome{
+        font-size: 20px;
+        width: 134px !important;
+    }
+    .sec2left h4{
+        font-size: 15px;
+    }
+    .sec2right h4{
+        font-size: 15px;
+    }
+}
+
+
+
+@media(max-width:420px){
+    
+    .captions h4 span{
+        font-size: 17px!important;
+    }
+    .orbtn {
+        margin-top: 6px!important;
+    }
+    .learnmore {
+        margin-top: 0px;
+    }
+    .charttext h4{
+        font-size: 14px;
+        margin-top: 0px;
+    }
+    .charttext > a{
+        font-size: 12px!important;
+    }
+    .charticon{
+        font-size: 40px!important;
+        margin-top:10px;
+    }
+    .btn-ctas{
+        margin-top: -40px!important;
+    }
+    
+
+}
+
+@media(max-width:440px){
+    .homecalstitle h3 {
+        height: 35px !important;
+    }
+}
+
+@media(max-width:460px){
+    .philostext{
+        margin-bottom: -50px!important;
+    }
+    .philosul{
+        margin-top: 45px;
+    }
+    
+    .contacttoppos h1{
+        width: 220px!important;
+    }
+}
+
+@media(max-width:530px){
+    .homecalstitle {
+        height: auto !important;
+        text-align: center;
+        width: 100%;
+    }
+    .homecalsiconwrap{
+        width: 100%;
+        text-align: center;
+        padding: 0px!important;
+    }
+    .homecals{
+        padding: 15px 5px!important;
+    }
+    .learnmore{
+        margin-top: 0px;
+    }
+    .orbtn{
+        margin-top: 5px!important;
+    }
+
+}
+
+
+@media(max-width:500px){
+    .homecalsinput{
+        line-height: 35px!important;
+        font-size: 14px!important;
+    }
+    input[name="planName"] {
+        font-size: 12px;
+        width: 72px!important;
+    } 
+    .input-cstm-homecals{
+        font-size: 14px!important;
+    }
+    .incm-input-homecals{
+        font-size: 14px!important;
+    }
+
+}
+
+
+
+
+@media(max-width:550px){
+    .everymonthtext{
+        display: block;
+        margin-top: 15px;
+        width: 100%;
+    }
+    .valuepropbot h1{
+        font-size: 18px;
+        line-height: 36px;
+    }
+    .pagetoppos h1{
+        display: none;
+    }
+    .pagetoppos h3{
+        margin-bottom: 15px!important;
+    }
+    .careertoppos h1{
+        font-size: 30px!important;
+        width: 250px!important;
+    }
+    .careertoppos h3{
+        display: none;
+    }
+    .privacytoppos h1 {
+        font-size: 20px!important;
+        margin-bottom: 0;
+        padding-bottom: 5px;
+        width: 300px!important;
+    }
+    .divsipcurage{
+        margin-bottom: 15px!important;
+    }
+}
+@media(max-width:560px){
+
+	#quote-carousel .carousel-indicators li{
+		height: 30px!important;
+		width: 30px!important;
+		margin: 0px !important;
+	}
+	#quote-carousel .carousel-indicators .active{
+		height: 70px!important;
+		width: 70px!important;
+	}
+
+}
+@media(max-width:610px){
+    .captions h4 p{
+        display: none;
+    }
+    .captions h4{
+        font-size: 18px!important;
+    }
+    .charttext h4{
+        font-size: 18px;
+    }
+    .charticon{
+        font-size: 54px;
+    }
+    
+    .btn-try {
+        font-size: 13px !important;
+        padding: 6px 30px 6px 10px;
+    }
+    .btn-works {
+        font-size: 13px !important;
+        padding: 6px 6px 6px 30px;
+    }
+    .orbtn {
+        font-size: 12px !important;
+        margin-left: -11px !important;
+        margin-right: -16px !important;
+        margin-top: 20px;
+        padding: 0 3px !important;
+    }
+    .loginformmain{
+        width: 100%!important;
+    }
+    .loginordiv{
+        width: 100%!important;
+        min-height: auto!important;
+        line-height: 10px!important;
+        margin-bottom: 50px;
+    }
+    .loginsmdiv{
+        width: 100%!important;
+    }
+    .smlogin{
+        min-height: auto!important;
+        line-height: 10px!important;        
+    }
+    .loginsocial li img{
+        width: 250px!important;
+        margin: 0px auto;
+    }
+    .signupmainform{
+        width: 100%!important;
+    }
+    .signupor{
+        width: 100%!important;
+        min-height: auto!important;
+        line-height: 10px!important;
+        margin-top: 30px;
+    }
+    .signupsmdiv{
+        width: 100%!important;
+    }
+    .bubble-sign{
+        margin: 0px auto!important;
+    }
+    .smsignup{
+        margin: 0 auto!important;
+    }
+    .signupwholewrap{
+        margin-top: 70px!important;
+    }
+    .mosaic-overlay h3{
+        font-size: 16px;
+    }
+    .mosaic-overlay p{
+        font-size: 11px;
+    }
+
+}
+
+
+@media(max-width:700px){
+    .captions h4 p{
+        display: none;
+    }
+}
+
+
+@media(max-width:767px){
+    .navbar-default-cstm{
+        z-index: 100000000000000000000!important;
+    }
+    .social{
+        display: none;
+    }
+    .feedback-panel{
+        display: none;
+    }
+    .navbar-brand-cstm img{
+        width: 125px!important;
+    }
+    .navbar-default-cstm{
+        background: rgba(0, 0, 0, 0.2) linear-gradient(to bottom, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.65));
+    }
+    .nav-top-btns{
+        margin-bottom: 10px;
+        text-align: center;
+    }
+    .navbar-right-cstm-res > li{
+        float: left;
+        width: 50%;
+    }
+    .contact-rightsec{
+        margin-top: 25px;
+    }
+    .navbar-brand-cstm{
+        padding: 5px!important;
+    }
+    .logo{
+        width: 100px!important;
+    }
+    .footer-alllinks{
+        text-align: center!important;
+    }
+    .share-plug{
+        display: none!important;
+    }
+    .header-phone-no{
+        display: block!important;
+        width: 100%!important;
+    }
+    .footerbottom{
+        border-top: none!important;
+    }
+    .footer-socials{
+        margin-top: 25px;
+    }
+    .footer-socials{
+        padding-left: 70px;
+    }
+    .footer-socials h4{
+        float: none!important;
+        text-align: center!important;
+    }
+    .footer-socials ul{
+        float: none!important;
+        text-align: center!important;
+    }
+    .footer-newsletter h4{
+        float: none!important;
+        text-align: center!important;   
+    }
+    .footer-newsletter h6{
+        float: none!important;
+        text-align: center!important;   
+    }
+    .hiwwrap{
+        margin-top: 90px!important;
+    }
+    .new-invest-wrap p{
+        padding: 0 5px!important;
+    }
+    .new-invest-wrap h4{
+        font-size: 17.5px!important;
+    }
+    /*value proposition*/
+    .timeline::before{
+        display: none!important;
+    }
+    .timeline > li > .timeline-badge{
+        display: none!important;
+    }
+    .timeline > li.timeline-inverted{
+        padding-left: 0px!important;
+    }
+    .timeline > li:not(.timeline-inverted){
+        padding: 0px!important;
+    }
+    .timeline > li > .timeline-panel{
+        float: none!important;
+        width: 100%!important;
+    }
+    .timeline > li > .timeline-panel::before{
+        display: none!important;
+    }
+    .timeline > li > .timeline-panel::after{
+        display: none!important;
+    }
+    .timeline > li > .timeline-panel{
+        min-height: 125px!important;
+    }
+    .timeline > li.timeline-inverted + li:not(.timeline-inverted), .timeline > li:not(.timeline-inverted) + li.timeline-inverted{
+        margin-top: 0px!important;
+    }
+    /*value proposition*/
+    .howitpng{
+        width: 70px;
+        margin: 0px auto!important;
+    }
+    .valuesimg img{
+        margin: 0 auto;
+    }
+    .jobimg img{
+        margin: 0 auto;
+    }
+    .current-jobs{
+        margin: 20px;
+    }
+    .careerwrap h3{
+        font-size: 18px;
+    }
+    .careersectwo h3{
+        font-size: 17px!important;
+    }
+    .smsignup ul li{
+        width: 100%;
+    }
+    .smsignup ul li a{
+        display: inline-block;
+        width: 100% !important;
+    }
+    .navbar-default-cstm {
+        background: rgba(0, 0, 0, 0.2) linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)) repeat scroll 0 0;
+    }
+    .pos-rel-img-top{
+        margin-top: 50px;
+    }
+    .privacytoppos h1 {
+        font-size: 24px;
+        width: 500px;
+    }
+    .sharelinkhead{
+        text-align: center!important;
+    }
+    .newsletterwrap{
+        margin: 0 auto!important;
+    }
+    .fb-like{
+        float: none !important;
+    margin: 30px auto;
+    }
+    .navbar-right-icons-footer{
+        text-align: center!important;
+    }
+    .gain-contri-label {
+        float: left;
+        width: 100%;
+        text-align: center;
+        margin-bottom: 15px;
+    }
+    .homecalhead{
+        font-size: 19px;
+    }
+    .homecalstophead{
+        font-size: 19px;
+    }
+}
+
+
+
+@media(max-width:825px){
+    .navbar-right-cstm li a{
+        padding: 10px 7px!important;
+        font-size: 12px!important;
+    }
+    .hiwwrap{
+        margin-top: 90px!important;
+    }
+    .careersectwo h3{
+        font-size: 16px;
+    }
+    .careersectwo{
+        padding: 25px !important;
+    }
+    .abouttoppos h1{
+        font-size: 28px!important;
+        margin-bottom: 2px!important;
+        width: 200px!important;
+    }
+    /*.bubble-sign{
+        margin-left: 28%;
+    }*/
+    
+}
+
+@media(max-width:980px){
+    .contact-rightsec{
+        margin-top: 50px;
+    }
+    .contact-list{
+        margin-top: 0px!important;
+        margin-bottom: 0px!important;
+    }
+    .contact-rightsec iframe{
+        margin-bottom: 40px!important;
+    }
+    #leftCol{
+        display: none;
+    }
+    .bubble-sign{
+        margin: 0px auto!important;
+    }
+    .smsignup{
+        margin: 0 auto!important;
+    }
+    .signupwholewrap{
+        margin-top: 70px!important;
+    }
+    .mosaic-overlay{
+        width: 100%;
+    }
+}
+
+
+
+@media(max-width:980px) and (min-width:767px){
+    #mainCol{
+        padding: 0px  50px;
+    }
+}
+
+
+
+@media(max-width:983px){
+    .navbar-brand-cstm img{
+        width: 125px!important;
+    }
+    .nav-top-btns{
+        border: 1px solid #139888;
+        margin: -1px 4px 0;
+        padding: 8px 15px !important;
+    }
+    .navbar-right-cstm li a{
+        padding: 10px 10px!important;
+    }
+
+}
+
+
+
+@media(max-width:991px){
+    .nav-tabs-cals li{
+        width: calc(100%/3);
+    }
+    .homesec2graphsbox{
+        min-height: 1200px;
+    }
+    .investearlyhead{
+        font-size: 22px;
+    }
+    .divsip h3 {
+        font-size: 20px;
+        margin: 10px 0 40px;
+    }
+    .tab-pane-homecal{
+        margin: 15px 0 20px!important;
+    }
+}
+@media(max-width:992px){
+    .homecalc{
+        margin-bottom: 50px;
+    }
+    .getgoingbtn{
+        margin-top: 0px!important;
+    }
+    .divsip h3 {
+        margin: 15px 0px;
+    }
+    .divsip{
+        margin: 5px 0px!important
+    }
+    .hiwwrap{
+        margin-top: 25px;
+    }
+    .captions h4{
+        font-size: 25px!important;
+    }
+    .navbar-right-cstm-res{
+
+    }
+    .bubble-sign{
+        /*margin-left: 37%;*/
+        margin-bottom: 20px;
+    }
+    .signback{
+        height: auto!important;
+    }
+    .smsignup li img {
+        
+        width: 225px;
+    }
+    .signupform{
+        margin-bottom: 25px;
+    }
+    .cols{
+        -webkit-column-count: 1!important; 
+        -moz-column-count: 1!important; 
+        column-count: 1!important;
+    }
+    .box{
+        width: 75%!important;
+        margin: 0 auto 25px;
+    }
+    .box>img{
+        width: 100%!important;
+    }
+    .bubble-sign{
+        margin: 0 auto!important;
+    }
+    .triangle{
+        display: none;
+    }
+    .triangle2{
+        display: none;
+    }
+    .howitdiv1{
+        display: none;
+    }
+    .howitdiv2{
+        display: none;
+    }
+    .howitdiv3{
+        display: none;
+    }
+    .howitdiv4{
+        display: none;
+    }
+    .pagetoppos h1 {
+        font-size: 33px!important;
+        margin: 0;
+        padding-bottom: 10px;
+        width: 275px;
+    }
+    .pagetoppos h3 {
+        font-size: 18px;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+    .careertoppos h1 {
+        font-size: 33px;
+        margin: 0;
+        padding-bottom: 10px;
+        width: 275px;
+    }
+    .careertoppos h3 {
+        font-size: 18px;
+        margin-bottom: 0;
+        margin-top: 10px;
+    }
+    .abouttoppos h1{
+        font-size: 30px;
+        margin-bottom: 0px;
+        width: 250px;
+    }
+    .contacttoppos h1 {
+        font-size: 30px;
+        margin-bottom: 0px;
+        width: 300px;
+    }
+}
+
+@media(max-width:1050px){
+    .careerwrap h3{
+        font-size: 20px!important;
+    }
+    .careersectwo h3{
+        font-size: 20px!important;
+    }
+    .careersectwo{
+        padding: 35px!important;
+    }
+}
+
+@media(max-width:1170px){
+    .header-phone-no{
+        display: none!important;
+    }
+    .pagetoppos h1 {
+        font-size: 40px!important;
+        margin: 0;
+        padding-bottom: 10px;
+        width: 315px;
+    }
+    .pagetoppos h3 {
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+    .careertoppos h1 {
+        font-size: 40px;
+        margin: 0;
+        padding-bottom: 10px;
+        width: 315px;
+    }
+    .careertoppos h3 {
+        font-size: 22px;
+        margin-top: 10px;
+        margin-bottom: 0px;
+    }
+}
+
+
+
+@media(max-width:1200px){
+    .signback{
+        height: 700px!important;
+    }
+    .tab-pane-homecal{
+        background-size: cover!important;
+
+    }
+    .homecalsinput{
+        font-size: 18px;
+    }
+    .getweltselect{
+        font-size: 18px!important;
+        width: 286px!important;
+    }
+    .weddhead{
+        font-size: 18px!important;
+    }
+    #fdrdselect{
+        font-size: 18px ! important;
+        width: 175px!important;
+    }
+    .homecalsicon img{
+        width: 52px!important;
+    }
+    .homecalstitle h3{
+        font-size: 15px!important;
+    }
+}
+@media(max-width:1200px){
+	/*.sec2left > h4 {
+	    font-size: 14px;
+	}
+	.sec2right > h4 {
+	    font-size: 14px;
+	}*/
+	.sec2right {
+	    float: left;
+	    width: 100%;
+	}
+}
+
+
+/*custom_responsive.css ends*/

@@ -1,0 +1,2375 @@
+<!DOCTYPE html>
+<html lang="en">
+{% include 'Partials/style.twig' %}
+{% include 'Partials/header.twig' %}
+<body onload="IsLanguageSelected()" data-ng-app="finmitraApp">
+
+    <!-- AngularJS /Career Apply Div :: Start -->
+    <div>
+        <div class="modal modal-career-cstm fade feedbackmodal" id="careerApplyNow" tabindex="-1" role="dialog" aria-labelledby="myCareerForm">
+            <div class="modal-dialog modal-dialog-career" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myCareerForm">Career Details</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="p-15" data-ng-controller="CareerController as career">
+                            <form name="myCareerForm" novalidate="novalidate">
+                                <div data-ng-show="career.SuccessFailureMessage === 'success'" class="alert alert-success"><a class="close" data-dismiss="alert" href="#">×</a><b>Thanks, Your resume submitted successfully</b></div>
+                                <div data-ng-show="career.SuccessFailureMessage === 'failed'" class="alert alert-warning"><a class="close" data-dismiss="alert" href="#">×</a><b>Try again, an error occured while submitting message</b></div>
+                                <div id="basicCareerForm">
+                                    <div class="form-group query-form">
+                                        <input type="text" placeholder="Type your complete name" name="applicantName" required class="form-control" data-ng-model="career.ContactName" />
+                                    </div>
+                                    <div role="alert" data-ng-show="myCareerForm.applicantName.$submitted || myCareerForm.applicantName.$touched">
+                                        <p class="mandatory" data-ng-show="myCareerForm.applicantName.$error.required">Enter your complete name</p>
+                                    </div>
+                                    <div class="form-group query-form">
+
+                                        <input id="careerFileUpload" name="careerFileUpload" type="file" class="filestyle" data-file-upload title="Only .docx and .doc file" data-buttontext="Choose File" data-placeholder="No file Choosen" />
+
+                                    </div>
+                                    <p class="mandatory">Only .docx, .doc or .pdf file formats supported</p>
+                                    <button type="submit" class="btn btn-default-cstm" data-ng-disabled="myCareerForm.$invalid || career.SelectedFileType === 'Invalid'" data-ng-click="career.onApplyForCareerClick(career.ContactName)" data-ng-show="career.SuccessFailureMessage !== 'success'">Apply</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- AngularJS /Career Apply Div :: End -->
+    <div class="modal fade feedbackmodal" id="feedback" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-feedbac" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Leave Us a Message</h4>
+                </div>
+                <div class="modal-body">
+                    
+
+
+     
+
+<script src="../www.google.com/recaptcha/api.js"></script>
+
+<div class="p-15">
+    <form id="contactBootstrapFormFeed" method="post" class="query-form">
+        <div class="form-group">
+            <label for="exampleInputEmail1">
+                <i class="fa fa-user"></i>
+            </label>
+            <input class="form-control" data-val="true" data-val-required="The FullName field is required." id="exampleInputEmail1" name="FullName" placeholder="Your Name" type="text" value="" />
+        </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">
+                <i class="fa fa-envelope"></i>
+            </label>
+            <input class="form-control" data-val="true" data-val-required="The Email field is required." id="exampleInputPassword1" name="Email" placeholder="Enter Your Mail ID. We promise we keep it safe" type="text" value="" />
+        </div>
+        <div class="form-group ">
+            <label for="exampleInputPassword1">
+                <span class="cont-phon-icon">
+                    <i class="fa fa-phone"></i>
+                </span>
+            </label>
+            <div class="pos-rel">
+                <select class="form-control contactsel" data-val="true" data-val-required="The CountryCode field is required." id="CountryCode" name="CountryCode"><option value="+91">+91 India</option>
+<option value="+355">+355 Albania</option>
+<option value="+213">+213 Algeria</option>
+<option value="+685">+685 American Samoa</option>
+<option value="+376">+376 Andorra</option>
+<option value="+244">+244 Angola</option>
+<option value="+1 264">+1 264 Anguilla</option>
+<option value="+672">+672 Australian Antarctic Territory</option>
+<option value="+1 268">+1 268 Antigua and Barbuda</option>
+<option value="+599">+599 Antilles</option>
+<option value="+54">+54 Argentina</option>
+<option value="+374">+374 Armenia</option>
+<option value="+297">+297 Aruba</option>
+<option value="+247">+247 Ascension Island</option>
+<option value="+61">+61 Australia</option>
+<option value="+43">+43 Austria</option>
+<option value="+994">+994 Azerbaijan</option>
+<option value="+351">+351 Azores</option>
+<option value="+1 242">+1 242 Bahamas</option>
+<option value="+973">+973 Bahrain</option>
+<option value="+880">+880 Bangladesh</option>
+<option value="+1 246">+1 246 Barbados</option>
+<option value="+1 268">+1 268 Barbuda and Antigua</option>
+<option value="+375">+375 Belarus</option>
+<option value="+32">+32 Belgium</option>
+<option value="+501">+501 Belize</option>
+<option value="+229">+229 Benin</option>
+<option value="+1 441">+1 441 Bermuda</option>
+<option value="+975">+975 Bhutan</option>
+<option value="+591">+591 Bolivia</option>
+<option value="+387">+387 Bosnia Herzegovina</option>
+<option value="+267">+267 Botswana</option>
+<option value="+55">+55 Brazil</option>
+<option value="+1 284">+1 284 British Virgin Islands</option>
+<option value="+673">+673 Brunei Darussalam</option>
+<option value="+359">+359 Bulgaria</option>
+<option value="+226">+226 Burkina Faso</option>
+<option value="+95">+95 Burma (Myanmar)</option>
+<option value="+257">+257 Burundi</option>
+<option value="+855">+855 Cambodia</option>
+<option value="+237">+237 Cameroon</option>
+<option value="+1">+1 Canada</option>
+<option value="+238">+238 Cape Verde Islands</option>
+<option value="+1 345">+1 345 Cayman Islands</option>
+<option value="+236">+236 Central African Republic</option>
+<option value="+235">+235 Chad</option>
+<option value="+56">+56 Chile</option>
+<option value="+86">+86 China</option>
+<option value="+672">+672 Christmas Island</option>
+<option value="+672">+672 Cocos Island</option>
+<option value="+57">+57 Colombia</option>
+<option value="+269">+269 Comoros</option>
+<option value="+242">+242 Congo</option>
+<option value="+682">+682 Cook Islands</option>
+<option value="+506">+506 Costa Rica</option>
+<option value="+225">+225 Cote D&#39;Ivoire (Ivory Coast)</option>
+<option value="+385">+385 Croatia</option>
+<option value="+53">+53 Cuba</option>
+<option value="+357">+357 Cyprus</option>
+<option value="+42">+42 Czech Republic</option>
+<option value="+45">+45 Denmark</option>
+<option value="+253">+253 Djibouti</option>
+<option value="+1 767">+1 767 Dominica</option>
+<option value="+1 809">+1 809 Dominican Rebublic</option>
+<option value="+593">+593 Ecuador</option>
+<option value="+20">+20 Egypt</option>
+<option value="+503">+503 El Salvador</option>
+<option value="+240">+240 Equatorial Guinea</option>
+<option value="+291">+291 Eritrea</option>
+<option value="+372">+372 Estonia</option>
+<option value="+251">+251 Ethiopia</option>
+<option value="+500">+500 Falkland Islands</option>
+<option value="+298">+298 Faroe Islands</option>
+<option value="+679">+679 Fiji</option>
+<option value="+358">+358 Finland</option>
+<option value="+33">+33 France</option>
+<option value="+594">+594 French Guiana</option>
+<option value="+689">+689 French Polynesia</option>
+<option value="+241">+241 Gabon</option>
+<option value="+220">+220 Gambia</option>
+<option value="+995">+995 Georgia</option>
+<option value="+49">+49 Germany</option>
+<option value="+233">+233 Ghana</option>
+<option value="+350">+350 Gibraltar</option>
+<option value="+30">+30 Greece</option>
+<option value="+299">+299 Greenland</option>
+<option value="+1 473">+1 473 Grenada</option>
+<option value="+1 784">+1 784 Grenadines</option>
+<option value="+590">+590 Guadeloupe</option>
+<option value="+671">+671 Guam</option>
+<option value="+502">+502 Guatemala</option>
+<option value="+224">+224 Guinea</option>
+<option value="+245">+245 Guinea-Bissau</option>
+<option value="+592">+592 Guyana</option>
+<option value="+509">+509 Haiti</option>
+<option value="+504">+504 Honduras</option>
+<option value="+852">+852 Hong Kong</option>
+<option value="+36">+36 Hungary</option>
+<option value="+354">+354 Iceland</option>
+<option value="+91">+91 India</option>
+<option value="+62">+62 Indonesia</option>
+<option value="+98">+98 Iran</option>
+<option value="+964">+964 Iraq</option>
+<option value="+353">+353 Ireland</option>
+<option value="+972">+972 Israel</option>
+<option value="+39">+39 Italy</option>
+<option value="+225">+225 Ivory Coast (Cote d&#39;Ivorie)</option>
+<option value="+1 876">+1 876 Jamaica</option>
+<option value="+81">+81 Japan</option>
+<option value="+962">+962 Jordan</option>
+<option value="+7">+7 Kazakhstan</option>
+<option value="+254">+254 Kenya</option>
+<option value="+7">+7 Kirghizstan</option>
+<option value="+686">+686 Kiribati</option>
+<option value="+381">+381 Kosovo</option>
+<option value="+965">+965 Kuwait</option>
+<option value="+856">+856 Laos</option>
+<option value="+371">+371 Latvia</option>
+<option value="+961">+961 Lebanon</option>
+<option value="+266">+266 Lesotho</option>
+<option value="+231">+231 Liberia</option>
+<option value="+218">+218 Libya</option>
+<option value="+423">+423 Liechtenstein</option>
+<option value="+370">+370 Lithuania</option>
+<option value="+352">+352 Luxembourg</option>
+<option value="+853">+853 Macao</option>
+<option value="+389">+389 Macedonia</option>
+<option value="+261">+261 Madagascar</option>
+<option value="+265">+265 Malawi</option>
+<option value="+60">+60 Malaysia</option>
+<option value="+960">+960 Maldives</option>
+<option value="+223">+223 Mali</option>
+<option value="+356">+356 Malta</option>
+<option value="+692">+692 Marshall Islands</option>
+<option value="+596">+596 Martinique</option>
+<option value="+222">+222 Mauritania</option>
+<option value="+230">+230 Mauritius</option>
+<option value="+269">+269 Mayotte</option>
+<option value="+52">+52 Mexico</option>
+<option value="+691">+691 Micronesia</option>
+<option value="+373">+373 Moldova</option>
+<option value="+377">+377 Monaco</option>
+<option value="+976">+976 Mongolia</option>
+<option value="+382">+382 Montenegro</option>
+<option value="+1 664">+1 664 Montserrat</option>
+<option value="+212">+212 Morocco</option>
+<option value="+258">+258 Mozambique</option>
+<option value="+264">+264 Namibia</option>
+<option value="+674">+674 Nauru</option>
+<option value="+977">+977 Napal</option>
+<option value="+31">+31 Netherlands (Holland)</option>
+<option value="+599">+599 Netherlands Antilles</option>
+<option value="+687">+687 New Caledonia</option>
+<option value="+64">+64 New Zealand</option>
+<option value="+505">+505 Nicaragua</option>
+<option value="+227">+227 Niger Republic</option>
+<option value="+234">+234 Nigeria</option>
+<option value="+47">+47 Norway</option>
+<option value="+850">+850 North Korea</option>
+<option value="+968">+968 Oman</option>
+<option value="+92">+92 Pakistan</option>
+<option value="+507">+507 Panama</option>
+<option value="+675">+675 Papua New Guinea</option>
+<option value="+595">+595 Paraguay</option>
+<option value="+51">+51 Peru</option>
+<option value="+63">+63 Philippines</option>
+<option value="+649">+649 Pitcairn Island</option>
+<option value="+48">+48 Poland</option>
+<option value="+351">+351 Portugal</option>
+<option value="+1 787">+1 787 Puerto Rico</option>
+<option value="+974">+974 Qatar</option>
+<option value="+40">+40 Romania</option>
+<option value="+7">+7 Russia</option>
+<option value="+250">+250 Rwanda</option>
+<option value="+290">+290 St Helena</option>
+<option value="+1 869">+1 869 St Kitts and Nevis</option>
+<option value="+1 758">+1 758 St Lucia</option>
+<option value="+1 784">+1 784 St Vincent</option>
+<option value="+378">+378 San Marino</option>
+<option value="+966">+966 Saudi Arabia</option>
+<option value="+221">+221 Senegal</option>
+<option value="+381">+381 Serbia</option>
+<option value="+248">+248 Seychelles</option>
+<option value="+232">+232 Sierra Leone</option>
+<option value="+65">+65 Singapore</option>
+<option value="+421">+421 Slovakia</option>
+<option value="+386">+386 Slovenia</option>
+<option value="+677">+677 Solomon Islands</option>
+<option value="+252">+252 Somalia</option>
+<option value="+27">+27 South Africa</option>
+<option value="+82">+82 South Korea</option>
+<option value="+349">+349 Spain</option>
+<option value="+94">+94 Sri Lanka</option>
+<option value="+249">+249 Sudan</option>
+<option value="+597">+597 Surinam</option>
+<option value="+268">+268 Swaziland</option>
+<option value="+46">+46 Sweden</option>
+<option value="+41">+41 Switzerland</option>
+<option value="+963">+963 Syria</option>
+<option value="+886">+886 Taiwan</option>
+<option value="+7">+7 Tajikistan</option>
+<option value="+255">+255 Tanzania</option>
+<option value="+66">+66 Thailand</option>
+<option value="+228">+228 Togo</option>
+<option value="+676">+676 Tonga</option>
+<option value="+1 868">+1 868 Trinidad &amp;amp; Tobago</option>
+<option value="+216">+216 Tunisia</option>
+<option value="+90">+90 Turkey</option>
+<option value="+7">+7 Turkmenistan</option>
+<option value="+1 649">+1 649 Turks &amp;amp; Caicos Islands</option>
+<option value="+688">+688 Tuvalu</option>
+<option value="+256">+256 Uganda</option>
+<option value="+380">+380 Ukraine</option>
+<option value="+971">+971 United Arab Emirates</option>
+<option value="+44">+44 United Kingdom</option>
+<option value="+598">+598 Uraguay</option>
+<option value="+1">+1 USA</option>
+<option value="+998">+998 Uzbekistan</option>
+<option value="+678">+678 Vanuatu</option>
+<option value="+39">+39 Vatican City</option>
+<option value="+58">+58 Venezuela</option>
+<option value="+84">+84 Vietnam</option>
+<option value="+1 340">+1 340 Virgin Islands (US)</option>
+<option value="+685">+685 Western Samoa</option>
+<option value="+967">+967 Yemen</option>
+<option value="+243">+243 Zaire (Congo)</option>
+<option value="+260">+260 Zambia</option>
+<option value="+263">+263 Zimbabwe</option>
+</select>
+                <input class="form-control contactinput" data-val="true" data-val-required="The Mobile field is required." id="contactmobfeed" name="Mobile" placeholder="Your Mobile Number" type="text" value="" />
+            </div>
+        </div>
+        <div class="form-group subsels">
+            <label for="exampleInputPassword1">
+                <i class="fa fa-list"></i>
+            </label>
+            <select class="form-control subjectsel" id="ddlsubjects" name="Subject" onclick="ShowOthersSubject()"><option value="">--Query Subject--</option>
+                <option value="Make an Investment">Make an Investment</option>
+                <option value="KYC Process">KYC Process</option>
+                <option value="Goal Based Investing">Goal Based Investing</option>
+                <option value="Investment Portfolio">Investment Portfolio</option>
+                <option value="Redeem">Redeem</option>
+                <option value="Feedback">Feedback</option>
+                <option value="Other">Other</option>
+                </select>       
+        </div>
+        <div class="form-group ">
+            <input class="form-control hidden" id="otherfield" name="otherSubject" placeholder="Enter the subject of Query" style="padding-left: 15px;" type="text" value="" />
+        </div>
+        <div class="form-group textareaquery">
+            <label for="exampleInputPassword1">
+                <i class="fa fa-commenting"></i>
+            </label>
+            <textarea class="form-control con-textarea" cols="20" data-val="true" data-val-required="The Message field is required." id="Message" name="Message" placeholder="Share with us any information that might help us to respond to your query" rows="3" style="resize:none">
+</textarea>
+        </div>
+        <div class="form-group">
+           <div class="row m-t-30 m-b-35" style="margin-left:0px">
+               <div class="g-recaptcha" data-sitekey="6LfOLBoTAAAAABlfJc-DcV1lUuOjbkaTH70oaRkY"></div>
+                    <p id="captchamessage" style="color:#c0392b !important; text-align:left;" class="error-captcha"><span class="glyphicon glyphicon-remove " ></span> Please fill up the captcha.</p> 
+               </div>
+        </div>
+
+        <button type="submit" class="btn btn-default-cstm" onclick="feedbackclick()">Send Message</button>
+    </form>
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+        $('#captchamessage').hide();
+
+        $('#submitbtn').click(function (e) {
+
+            var captcha_response = grecaptcha.getResponse();
+
+            if (captcha_response.length == 0) {
+
+                $('#captchamessage').show();
+
+                e.preventDefault();
+
+            }
+
+            else {
+
+                $('#captchamessage').hide();
+
+                $('#contactBootstrapFormFeed').unbind('submit').submit();
+            }
+        });
+        $("#contactmobfeed").keypress(function (e) {
+            if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+                $("#errmsg").html("Digits Only").show().fadeOut("slow");
+                return false;
+            }
+        })
+
+        function randomNumber(min, max) {
+            return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+
+        function generateCaptchaFeedback() {
+            $('#captchaOperationFeedback').html([randomNumber(1, 100), '+', randomNumber(1, 200), '='].join(' '));
+        }
+
+        generateCaptchaFeedback();
+
+        $('#contactBootstrapFormFeed').formValidation({
+            framework: 'bootstrap',
+            icon: {
+                valid: 'glyphicon glyphicon-ok',
+                invalid: 'glyphicon glyphicon-remove',
+                validating: 'glyphicon glyphicon-refresh'
+            },
+            fields: {
+                firstName: {
+                    row: '.col-xs-4',
+                    validators: {
+                        notEmpty: {
+                            message: 'The first name is required'
+                        }
+                    }
+                },
+                lastName: {
+                    row: '.col-xs-4',
+                    validators: {
+                        notEmpty: {
+                            message: 'The last name is required'
+                        }
+                    }
+                },
+                Mobile: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The phone must be 10 Numbers only'
+                        },
+                        stringLength: {
+                            min: 10,
+                            max: 10,
+                            message: 'Contact No. is required'
+                        },
+                        regexp: {
+                            regexp: /^[0-9_\.]+$/,
+                            message: ''
+                        }
+                    }
+                },
+                FullName: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Name  is required'
+                        }
+                    }
+                },
+                Email: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The email address is required'
+                        },
+                        regexp: {
+                            regexp: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                            message: 'The input is not a valid email address'
+                        }
+                    }
+                },
+                Subject: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The Subject is required'
+                        }
+                    }
+                },
+                Message: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The Message is required'
+                        },
+                        stringLength: {
+                            min: 20,
+                            max: 1999,
+                            message: 'The Message must consist of atleast 20 &amp; maximum 2000 characters'
+                        }
+                    }
+                },
+                password: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The password is required'
+                        },
+                        different: {
+                            field: 'username',
+                            message: 'The password cannot be the same as username'
+                        }
+                    }
+                },
+                otherSubject: {
+                    validators: {
+                        notEmpty: {
+                            message: 'Enter subject is required'
+                        }
+                    }
+                },
+                agree: {
+                    validators: {
+                        notEmpty: {
+                            message: 'You must agree with the terms and conditions'
+                        }
+                    }
+                },
+                captcha: {
+                    validators: {
+                        callback: {
+                            message: 'Wrong answer',
+                            callback: function (value, validator, $field) {
+                                var items = $('#captchaOperationFeedback').html().split(' '),
+                                sum = parseInt(items[0]) + parseInt(items[2]);
+                                return value == sum;
+                            }
+                        }
+                    }
+                }
+            }
+        }).on('err.form.fv', function (e) {
+            generateCaptchaFeedback();
+        });
+    });
+
+    function ShowOthersSubject() {
+        var subselect = document.getElementById("ddlsubjects");
+        var disabledbox = document.getElementById("otherfield");
+        var selectedText = subselect.options[subselect.selectedIndex].text;
+        if (selectedText == "Other") {
+            $('#otherfield').removeClass('hidden');
+        }
+        else {
+            $('#otherfield').addClass('hidden');
+        }
+    }
+
+    function feedbackclick() {
+        var isValidForm = $('#contactBootstrapFormFeed').data('formValidation').isValid();
+        if (isValidForm) {
+            var formdata = $("#contactBootstrapFormFeed");
+            $.ajax({
+                type: "POST",
+                url: "/Home/PostFeedback", // the URL of the controller action method
+                data: formdata.serialize(), // optional data
+                dataType: 'json',// optional data
+                success: function (req) {
+                    if (req.responseText != "") {
+                        alert('thanks query submitted');
+                    }
+                    else {
+                        alert('an error occured while processing your request');
+                    }
+                },
+                error: function (req, status, error) {
+                    alert('thanks query submitted');
+                }
+            });
+        }
+    }
+</script>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="LanguageOptionModel" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-feedbac" role="document">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align:center;">
+                    <span class="modal-title">Please Select Your Language</span>
+                </div>
+                <div class="modal-body">
+                    <h4 style="text-align:center;">
+    <div class="btn-group btn-ctas" role="group">
+        <a href="en.html" class="btn btn-default learnmore btn-try">English</a>
+        <button type="button" class="btn orbtn">or</button>
+        <a href="hi.html" class="btn btn-default learnmore btn-works">हिंदी&nbsp;&nbsp;&nbsp;&nbsp;</a>
+    </div>
+</h4>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="share-plug">
+        <nav class="menu" id="share-floater">
+            <input type="checkbox" href="#" class="menu-open" name="menu-open" id="menu-open" />
+            <label class="menu-open-button" for="menu-open">
+                <i class="fa fa-share-alt shareiconflot"></i>
+            </label>
+            <a href="https://www.facebook.com/finmitra/" target="_blank" class="menu-item"><i class="fa fa-facebook"></i></a>
+            <a href="https://twitter.com/fin_mitra" target="_blank" class="menu-item"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.linkedin.com/company/finmitra" target="_blank" class="menu-item"><i class="fa fa-linkedin"></i></a>
+            <a href="https://plus.google.com/109951089483684037846" target="_blank" class="menu-item"><i class="fa fa-google-plus"></i></a>
+            <a href="#" target="_blank" class="menu-item"><i class="fa fa-tumblr"></i></a>
+        </nav>
+    </div>
+    <nav class="navbar navbar-default navbar-default-cstm navbar-fixed-top">
+        <div id="loader-wrapper" class="visible-xs">
+            <div id="loader">
+            </div>
+            <div class="loader-section section-left"></div>
+            <div class="loader-section section-right"></div>
+            <div><img id="image-wrapper" src="{{ base_url() }}/assets/Content/themes/img/preloaderlogo.png" /></div>
+        </div>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand navbar-brand-cstm" href="en.html"><img class="logo" src="{{ base_url() }}/assets/Content/themes/img/finmitra.png"></a>
+                <a class="visible-xs" href="tel:+918041460006" style="float:right;padding-right:20px;padding-top:12px"><img style="width:1.5em;height:1.5em;" src="{{ base_url() }}/assets/Content/themes/img/phone.png" /></a>
+                
+                <a class="visible-xs" style="float:right;padding-right:20px;padding-top:12px" href="whatsapp://send?text=You%20should%20try%20FinMitra%2C%0AOnline%20Financial%20Advisor.%0AFor%20Tax%20Saving%2C%20Investments%20and%20Insurance.%0ACheckout%20www.finmitra.com%20or%20call%20them%20on%20%20%2B91-80-414-60006" data-href="index.html"><img style="width:1.5em;height:1.5em;" src="{{ base_url() }}/assets/Content/themes/img/share.png" /></a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-collapse-cstm" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-left navbar-right-cstm">
+                    <li><a href="en.html">Home</a></li>
+                    <li class="dropdown dropdown-cstm-fin hidden-xs">
+                        <a href="#" class="dropdown-toggle dropdown-toggle-cstm1" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Company<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-com">
+                            <li><a href="en/home/about.html">About Us</a></li>
+                            <li><a href="en/home/career.html">Careers</a></li>
+                            <li><a href="en/home/videos.html">Press</a></li>
+                        </ul>
+                    </li>
+                    <li class="visible-xs"><a href="en/home/about.html">About Us</a></li>
+                    <li class="visible-xs"><a href="en/home/career.html">Careers</a></li>
+                    <li class="visible-xs"><a href="en/home/videos.html">Press</a></li>
+                    <li><a href="en/home/howItWorks.html" onclick="ga('send', 'event', { eventCategory: 'Discovery', eventAction: 'How it Works', eventLabel: 'Click', eventValue: 0});">How it Works</a></li>
+                    <li><a href="blog/index.html">Blog</a></li>
+                    
+                    <li class="dropdown dropdown-cstm-fin hidden-xs">
+                        <a href="#" class="dropdown-toggle dropdown-toggle-cstm1" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contact Us<span class="caret"></span></a>
+                        <ul class="dropdown-menu dropdown-menu-com" style="width:220px">
+                            <li style="width:40%;"><a href="en/home/contact.html">Reach Us</a></li>
+                            <li style="width:60%;"><a href="en/home/AskExpert.html">Ask Our Experts</a></li>
+                        </ul>
+                    </li>
+                    <li class="visible-xs"><a href="en/home/contact.html">Contact Us</a></li>
+                    <li class="visible-xs"><a href="en/home/askexpert-2.html">Ask Our Experts</a></li>
+                </ul>
+
+                    <ul class="nav navbar-nav navbar-right navbar-right-cstm navbar-right-cstm-res">
+                        <li class="header-phone-no"><a class="" href="#" style="outline: none"><i class="fa fa-phone"></i>&nbsp;+91-80-414-60006</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle nav-top-btns" data-toggle="dropdown">Language <b class="caret"></b></a>
+                            <ul class="dropdown-menu culture-menu" style="display: none;">
+                                <li><a class="nav-top-btns " href="en.html">English</a></li>
+                                <li><a class="nav-top-btns " href="hi.html">Hindi</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="nav-top-btns" href="en/account/login.html">Log In</a></li>
+                        <li><a class="nav-top-btns m-r-20 join-btn" href="en/account/register.html" id="btnregister">Join For Free</a></li>
+                    </ul>
+            </div>
+        </div>
+    </nav>
+    
+<meta content="IE=9" http-equiv="X-UA-Compatible">
+<style type="text/css">
+    .incm-input-homecals {
+        box-shadow: none !important;
+    }
+
+    .input-cstm-homecals {
+        box-shadow: none !important;
+    }
+
+    .allfieldreq {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        color: #ff7979;
+        font-size: 12px;
+        z-index: 10000;
+    }
+
+    .divsip input {
+        box-shadow: none !important;
+    }
+
+    .fordisableds {
+        border: 1px solid #139888;
+        padding: 8px 15px !important;
+    }
+
+    .homecalsinput {
+        line-height: 50px;
+    }
+
+    .error {
+        color: #ff7979 !important;
+        font-size: 11.5px;
+        left: -49px;
+        min-width: 250px;
+        position: absolute;
+        top: 15px;
+    }
+
+    .grayoutimage {
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        filter: grayscale(100%);
+    }
+
+        .grayoutimage:hover {
+            -webkit-filter: grayscale(0%);
+            -moz-filter: grayscale(0%);
+            -o-filter: grayscale(0%);
+            -ms-filter: grayscale(0%);
+            filter: grayscale(0%);
+        }
+
+    .grayimages:hover {
+        background: rgba(0, 0, 0, 0) url('Content/themes/img/net.png') repeat scroll 0 0;
+        z-index: 100;
+        opacity: 0.65;
+    }
+
+    .pressicons {
+        display: flex;
+        flex-direction: row;
+        /* Below sets up your display method, ex: flex-start|flex-end|space-between|space-around */
+        justify-content: space-around;
+        /* Below removes bullets and cleans white-space */
+        list-style: none;
+        padding: 2%;
+        /* Bonus: forces no word-wrap */
+         margin-bottom: -3%;
+    }
+
+    ul.pressicons img {
+        width: 100%;
+        height: 100%;
+    }
+ 
+
+
+</style>
+
+<div ng-app="finmitraApp" data-ng-controller="DashboardController">
+    <section>
+        <div class="flexslider">
+            <ul class="slides">
+                <li>
+                    <div class="captions">
+                        <h4>
+                            <span>&quot;Goals are Dreams with Deadlines&quot;</span><br>
+                            <p>Let’s get you financially ready for your dreams</p>
+                            <div class="btn-group btn-ctas" role="group" aria-label="...">
+                                <a class="btn btn-default learnmore btn-try" href="en/index.html#PickAGoal"><i class="fa fa-check-circle"></i>&nbsp; Try it For Free</a>
+                                <button type="button" class="btn orbtn">or</button>
+                                <a href="en/home/howitworks-2.html" class="btn btn-default learnmore btn-works" onClick="ga('send', 'event', { eventCategory: 'Discovery', eventAction: 'How it Works', eventLabel: 'Click', eventValue: 0});"><i class="fa fa-info-circle"></i>&nbsp; See How It Works</a>
+                            </div>
+                        </h4>
+                    </div>
+                    <div class="overlay"></div>
+                    <img src="{{ base_url() }}/assets/Content/themes/img/frontimg.jpg" style="max-height:82vh">
+                </li>
+            </ul>
+        </div>
+    </section>
+    <section>
+        <ul class="pressicons jobssec text-center">
+            <li>
+                <a href="en/home/Videos-2.html#cnbc"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/cnbc.png"></a>
+            </li>
+            
+            <li>
+                <a href="en/home/Videos-2.html#nasscom" style="top: -250px;"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/nasscom.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#tie"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/TIE.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#tne"><img class="grayimages" src="{{ base_url() }}/assets/Content/themes/img/logos/press/TNE.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#toi"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/TOI.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#yourstory"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/YourStory.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#zonestartups"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/ZoneStartups.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#bse"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/bse.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#spjimr"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/spjimr.png"></a>
+            </li>
+            <li>
+                <a href="en/home/Videos-2.html#firstpost"><img class="grayoutimage" src="{{ base_url() }}/assets/Content/themes/img/logos/press/firstpost.png"></a>
+            </li>
+        </ul>
+    </section>
+    <section class="sectiontwo">
+        <div class="container">
+            <div class="row">
+    <link href="{{ base_url() }}/assets/Content/themes/base/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/Content/themes/base/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/Content/themes/base/custom.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/Content/themes/base/custom_responsive.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/Content/themes/base/margins.css" rel="stylesheet">
+    <link href="{{ base_url() }}/assets/Content/themes/base/highslide.css" rel="stylesheet" />
+    <link rel="stylesheet" href="{{ base_url() }}/assets/Content/themes/base/flexslider.css">
+    <link rel="stylesheet" href="{{ base_url() }}/assets/Content/themes/base/owl.carousel.css">
+    <link rel="stylesheet" href="{{ base_url() }}/assets/Content/themes/base/jquery.bxslider.css">
+    <link rel="stylesheet" href="{{ base_url() }}/assets/Content/themes/base/animate.css">
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/Content/themes/base/normalize.css" />
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/Content/themes/base/cs-select.css" />
+    <link rel="stylesheet" type="text/css" href="{{ base_url() }}/assets/Content/themes/base/cs-skin-overlay.css" />
+    <link href='https://fonts.googleapis.com/css?family=ABeeZee' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+    <link rel="icon" href="{{ base_url() }}/assets/Content/themes/img/favicon.ico" type="image/ico" sizes="16x16">
+
+    <script src="../code.highcharts.com/modules/exporting.js"></script>
+    <script src="../code.highcharts.com/highcharts.js"></script>
+    <script src="../code.highcharts.com/modules/data.js"></script>
+    <script src="../code.highcharts.com/highcharts-3d.js"></script>
+    <script src="../code.highcharts.com/modules/heatmap.js"></script>
+    <script src="../code.highcharts.com/highcharts-more.js"></script>
+    <script src="../code.highcharts.com/modules/funnel.js"></script>
+    <script src="../code.highcharts.com/modules/heatmap.js"></script>
+    <script src="../code.highcharts.com/modules/treemap.js"></script>
+    <script src="../code.highcharts.com/modules/drilldown.js"></script>
+    <script src="../code.highcharts.com/modules/solid-gauge.js"></script>
+    <script src="{{ base_url() }}/assets/Scripts/jquery.min.js"></script>
+
+
+    
+    <script>
+        $(document).ready(function () {
+            $("#amt_error").hide();
+            $(".calcInput").keydown(function (event) {
+                if (event.shiftKey) {
+                    event.preventDefault();
+                }
+                if (event.keyCode == 46 || event.keyCode == 8 || event.keyCode == 9 || event.keyCode == 37 || event.keyCode == 39 || event.keyCode == 16) {
+                }
+                else {
+                    if (event.keyCode < 95) {
+                        if (event.keyCode < 48 || event.keyCode > 57) {
+                            event.preventDefault();
+                        }
+                    }
+                    else {
+                        if (event.keyCode < 96 || event.keyCode > 105) {
+                            event.preventDefault();
+                        }
+                    }
+                }
+
+
+
+            });
+
+            $("#ReqMoney").val(250000);
+            $("#Term").val(10);
+            $("#RateOfInt").val(9);
+            $("#DelayTerm").val(3);
+
+            reload_page();
+
+            /* $(".calcInput").keyup(function ()
+             {
+                 reload_page();
+
+             });*/
+        });
+
+        function reload_page() {
+            var early_data_Array1 = [];
+            var early_data_Array2 = [];
+            var late_data_Array1 = [];
+            var late_data_Array2 = [];
+            early_data_Array1.push(0, 0);
+            early_data_Array2.push(0, 0);
+            late_data_Array1.push(0, 0);
+            late_data_Array2.push(0, 0);
+            var i = 1;
+            var temp = 0;
+            reqmoney = $("#ReqMoney").val();
+            reqmoney = reqmoney.replace(/,/g, "");
+            reqmoney = parseInt(reqmoney);
+            term = parseInt($("#Term").val());
+            roi = 9;
+            delayterm = parseInt($("#DelayTerm").val());
+
+
+            //Early Investing Calculations
+            roi = roi / 100 / 12;
+            early = reqmoney * (roi / (Math.pow(1 + roi, term * 12) - 1));
+            temp = early;
+            early *= 12;
+            temp = Math.round(temp);
+            if (!isNaN(temp)) {
+                $("#EarlyInv").html(Rupee(temp));
+            }
+            else {
+                $("#EarlyInv").html(0);
+            }
+            while (i < (term + 1)) {
+                earlygain = Math.pow((1 + roi), (12 * i));
+                earlygain = ((earlygain - 1) / roi);
+                earlygain *= temp;
+                earlygain -= early;
+                early_data_Array1.push(Math.round(early));
+                early_data_Array2.push(Math.round(earlygain));
+                early += temp * 12;
+                i += 1;
+            }
+            early -= temp * 12;
+
+            //Early Investing Result
+            //$("#EarlyActualPaid").html(Math.round(early));
+            //$("#EarlyGain").html(Math.round(earlygain));
+
+            //Delay Investing Calculations
+            i = 0;
+            delay = term - delayterm;
+            while (i < delayterm) {
+                late_data_Array1.push(0);
+                late_data_Array2.push(0);
+                i += 1;
+            }
+            i = 1;
+            late = reqmoney * (roi / (Math.pow(1 + roi, delay * 12) - 1));
+            temp = late;
+            late *= 12;
+            temp = Math.round(temp);
+            if (!isNaN(temp)) {
+                $("#LateInv").html(Rupee(temp));
+            }
+            else {
+                $("#LateInv").html(0);
+            }
+
+            while (i <= delay) {
+                lategain = Math.pow((1 + roi), (12 * i));
+                lategain = ((lategain - 1) / roi);
+                lategain *= temp;
+                lategain -= late;
+                late_data_Array1.push(Math.round(late));
+                late_data_Array2.push(Math.round(lategain));
+                late += temp * 12;
+                i += 1;
+
+            }
+            late -= temp * 12;
+
+            //$("#LateActualPaid").html(Math.round(late));
+            //$("#LateGain").html(Math.round(lategain));
+
+
+            var chart;
+            var chart1;
+            chart = new Highcharts.Chart({
+
+                chart: {
+                    renderTo: 'container',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'area'
+                },
+
+                xAxis: {
+                    tickInterval: (term - Math.round(term / 1.2)),
+                    title: { text: 'Years' }, min: 1, max: term + 1,
+
+                    categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035', '2036', '2037', '2038', '2039', '2040', '2041', '2042', '2043', '2044', '2045', '2046', '2047', '2048', '2049', '2050', '2051', '2052', '2053', '2054', '2055', '2056', '2057', '2058', '2059', '2060', '2061', '2062', '2063', '2064', '2065', '2066', '2067', '2068', '2069', '2070', '2071', '2072', '2073', '2074', '2075', '2076', '2077', '2078', '2079', '2080'],
+
+
+                },
+                title: {
+                    text: 'Early Investing'
+                },
+                yAxis: { title: { text: 'Amount in Rs.' }, min: 0, max: (early + earlygain) },
+
+                tooltip: {
+                    shared: true,
+
+                    formatter: function () {
+                        text = 'In <b>' + this.x + '</b>,<br>Your contributions total to <b> Rs.' + Rupee(chart.series[1].data[this.x - 2015].y) + '</b>' + '<br>while the investment is valued at <b> Rs.' + Rupee(chart.series[1].data[this.x - 2015].y + chart.series[0].data[this.x - 2015].y) + '</b> &amp; your gain is <b> Rs.' + Rupee(chart.series[0].data[this.x - 2015].y) + '</b>';
+                        return text;
+                    }
+                },
+
+
+
+                credits: {
+                    enabled: false
+
+                },
+
+                plotOptions: {
+                    area: {
+                        stacking: 'normal',
+                        lineColor: '#ffffff',
+                        lineWidth: 1,
+                        marker: {
+                            lineWidth: 1,
+                            lineColor: '#ffffff'
+                        }
+                    },
+
+                    series:
+                    {
+                        events:
+                        {
+                            legendItemClick: function () {
+                                return false; // <== returning false will cancel the default action
+                            }
+                        }
+
+                    }
+
+
+                },
+
+                series: [
+                            {
+                                name: 'Gain',
+                                type: 'area',
+                                color: '#7fb800',
+                                data: early_data_Array2,
+
+                            },
+
+                            {
+                                name: 'Total Contribution',
+                                type: 'area',
+                                color: '#007D94',
+                                data: early_data_Array1,
+
+                            }]
+            });
+
+
+            chart1 = new Highcharts.Chart({
+
+                chart: {
+                    renderTo: 'container1',
+                    plotBackgroundColor: null,
+                    plotBorderWidth: null,
+                    plotShadow: false,
+                    type: 'area'
+                },
+
+                xAxis: {
+                    tickInterval: (term - Math.round(term / 1.2)),
+                    title: { text: 'Years' }, min: 1, max: term + 1,
+
+                    categories: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026', '2027', '2028', '2029', '2030', '2031', '2032', '2033', '2034', '2035', '2036', '2037', '2038', '2039', '2040', '2041', '2042', '2043', '2044', '2045', '2046', '2047', '2048', '2049', '2050', '2051', '2052', '2053', '2054', '2055', '2056', '2057', '2058', '2059', '2060', '2061', '2062', '2063', '2064', '2065', '2066', '2067', '2068', '2069', '2070', '2071', '2072', '2073', '2074', '2075', '2076', '2077', '2078', '2079', '2080'],
+
+
+                },
+                title: {
+                    text: 'Late Investing'
+                },
+                yAxis: { title: { text: 'Amount in Rs.' }, min: 0, max: (late + lategain + 1) },
+
+                tooltip: {
+                    shared: true,
+
+                    formatter: function () {
+                        text = 'In <b>' + this.x + '</b>,<br>Your contributions total to <b> Rs.' + Rupee(chart1.series[1].data[this.x - 2015].y) + '</b>' + '<br>while the investment is valued at <b> Rs.' + Rupee(chart1.series[1].data[this.x - 2015].y + chart1.series[0].data[this.x - 2015].y) + '</b> &amp; your gain is <b> Rs.' + Rupee(chart1.series[0].data[this.x - 2015].y) + '</b>';
+                        return text;
+                    }
+                },
+
+
+
+                credits: {
+                    enabled: false
+
+                },
+
+                plotOptions: {
+                    area: {
+                        stacking: 'normal',
+                        lineColor: '#ffffff',
+                        lineWidth: 1,
+                        marker: {
+                            lineWidth: 1,
+                            lineColor: '#ffffff'
+                        }
+                    },
+
+                    series:
+                    {
+                        events:
+                        {
+                            legendItemClick: function () {
+                                return false; // <== returning false will cancel the default action
+                            }
+                        }
+
+                    }
+
+
+                },
+
+                series: [
+                            {
+                                name: 'Gain',
+                                type: 'area',
+                                color: '#7fb800',
+                                data: late_data_Array2,
+
+                            },
+
+                            {
+                                name: 'Total Contribution',
+                                type: 'area',
+                                color: '#007D94',
+                                data: late_data_Array1,
+
+                            }]
+            });
+        }
+
+        //old function
+        /*function Validate()
+        {
+            reqmoney = $("#ReqMoney").val();
+            reqmoney = reqmoney.replace(/,/g, "");
+            reqmoney = parseInt(reqmoney);
+            term = parseInt($("#Term").val());
+            delayterm = parseInt($("#DelayTerm").val());
+
+            if (delayterm >= term || delayterm<1)
+                $("#DelayTerm").val(1);
+
+            if (reqmoney > 1000000000)
+            {
+                $("#ReqMoney").val(1000000000);
+                reqmoney = $("#ReqMoney").val();
+            }
+
+
+                reqmoney = reqmoney.toString();
+                var res = Rupee(reqmoney);
+                $("#ReqMoney").val(res);
+
+            if (term > 50)
+                $("#Term").val(50);
+
+            if (term <1)
+            {
+                $("#Term").val(2);
+
+            }
+
+        }*/
+
+        //New function
+        function Validate_amt() {
+            reqmoney = $("#ReqMoney").val();
+
+            if (reqmoney > 1000000000) {
+                $("#ReqMoney").val(1000000000);
+                reqmoney = $("#ReqMoney").val();
+            }
+            if (reqmoney < 50000) {
+                $("#amt_error").show();
+                return;
+            }
+            else {
+                $("#amt_error").hide();
+            }
+            reload_page();
+
+        }
+
+        function Validate_yrs() {
+            term = parseInt($("#Term").val());
+            delayterm = parseInt($("#DelayTerm").val());
+
+            if (term > 50)
+                $("#Term").val(50);
+
+            if (term <= 0 || isNaN(term)) {
+                $("#Term").val(2);
+                term = $("#Term").val();
+                $("#DelayTerm").val(term - 1);
+            }
+
+            if (delayterm >= term || isNaN(term)) {
+
+                $("#DelayTerm").val(term - 1);
+            }
+            reload_page();
+        }
+
+        function Rupee(temp) {
+            var x = temp;
+            x = x.toString();
+            var lastThree = x.substring(x.length - 3);
+            var otherNumbers = x.substring(0, x.length - 3);
+            if (otherNumbers != '')
+                lastThree = ',' + lastThree;
+            var res = otherNumbers.replace(/\B(?=(\d{2})+(?!\d))/g, ",") + lastThree;
+            return res;
+        }
+    </script>
+    <style>
+        .containeraiti {
+            float: left;
+            display: inline-block;
+            height: 200px;
+            width: 200px;
+        }
+
+        .highcharts-legend {
+            display: none;
+        }
+    </style>
+
+
+<div style="background:transparent!important;">
+    <h4 class="reviewhead3 text-center m-t-30 investearlyhead">Invest Early and Get More From Less</h4>
+    <form class="divsip m-tb-15 p-tb-5">
+        <div>
+            <h3 class="m-b-30 text-center">
+                <span>I want</span> <i style="color:#7fb800;" class="fa fa-rupee"></i>
+                <div style="width: 160px; overflow: hidden ! important; display: inline-block ! important;position: relative; top: 10px;" class="moneyrequiredhome">
+                    <input type="number" style="color:#7fb800!important;text-align:center!important;width:177px;" id="ReqMoney" class="calcInput incm-input" onkeyup="Validate_amt();">
+                </div>
+                <span>in</span>
+                <div style="width: 50px ! important; overflow: hidden ! important; display: inline-block ! important;position: relative; top: 10px;">
+                    <input type="number" style="color:#7fb800!important;text-align:center!important;width: 67px ! important;" id="Term" class="calcInput input-cstm timespanreqhome" onblur="Validate_yrs();" />
+                </div>
+                <span>years.</span><br />
+                <!--<span style="color:red !important;font-size:12px;"><i id="amt_error">Amount should be greater than 50,000</i></span>-->
+            </h3>
+        </div>
+        <div class="">
+            <div class="col-md-6 col-sm-6">
+                <div class="sec2left text-center m-t-10 m-b-50">
+                    <h4 class="m-t-20">Start now by investing <br><br><span><i class="fa fa-rupee"></i><span id="EarlyInv"></span></span> per month.</h4>
+                </div>
+                <div id="container" class="containeraiti" style="width: 100%; height: 300px;  display:inline"></div>
+                <div class="gain-contri-label visible-xs">
+                    <span style="font-size:11px;color:#555!important;margin: 0 auto!important;">
+                        <span style="padding:0px 8px;background:#7fb800"></span>&nbsp; Gain &nbsp;&nbsp;&nbsp;
+                        <span style="padding:0px 8px;background:#007D94"></span>&nbsp; Your Contribution
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+                <div class="sec2right text-center m-t-10 m-b-50">
+                    <h4>
+                        But, if you delay investing by
+                        <input type="text" style="width: 53px;color:#7fb800;" id="DelayTerm" class="input-cstm calcInput" maxlength="2" onblur="Validate_yrs();" />
+                        years, you’ll have to invest <br><br><span><i class="fa fa-rupee"></i><span id="LateInv"></span></span> per month.
+                    </h4>
+                </div>
+                <div id="container1" class="containeraiti" style="width: 100%; height: 300px;  display:inline"></div>
+                <div class="gain-contri-label visible-xs">
+                    <span style="font-size:11px;color:#555!important;margin: 0 auto!important;">
+                        <span style="padding:0px 8px;background:#7fb800"></span>&nbsp; Gain &nbsp;&nbsp;&nbsp;
+                        <span style="padding:0px 8px;background:#007D94"></span>&nbsp; Your Contribution
+                    </span>
+                </div>
+            </div>
+            <div class="col-md-12 col-sm-12 text-center hidden-xs">
+                <span style="font-size:11px;color:#555!important;">
+                    <span style="padding:0px 8px;background:#7fb800"></span>&nbsp; Gain &nbsp;&nbsp;&nbsp;
+                    <span style="padding:0px 8px;background:#007D94"></span>&nbsp; Your Contribution
+                </span>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+            </div>
+        </div>
+    </section>
+    <section class="m-b-30 homecalsback">
+        <div class="container" id="PickAGoal">
+            <div class="row">
+                <h4 class="homecalhead text-center">Pick a Goal and We’ll Help You Achieve It</h4>
+                <div class="col-md-3">
+                    <ul class="nav nav-tabs nav-tabs-cals" role="tablist" id="left-homecals">
+                        <li role="presentation" class="active">
+                            <a href="#rt" aria-controls="rt" role="tab" data-toggle="tab">
+                                <div class="homecals">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 p-r-0 text-center homecalsiconwrap">
+                                            <div class="homecalsicon">
+                                                <img src="{{ base_url() }}/assets/Content/themes/img/retirement.png">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 homecalstitle">
+                                            <h3>Retirement</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li role="presentation" class="">
+                            <a href="#edu" aria-controls="edu" role="tab" data-toggle="tab" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Education Start', eventLabel: 'Click', eventValue: 0});">
+                                <div class="homecals">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 p-r-0 text-center homecalsiconwrap">
+                                            <div class="homecalsicon">
+                                                <img src="{{ base_url() }}/assets/Content/themes/img/graduate20.png">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 homecalstitle">
+                                            <h3>Education</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#emefun" aria-controls="emefun" role="tab" data-toggle="tab" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Emergency Start', eventLabel: 'Click', eventValue: 0});">
+                                <div class="homecals">
+                                    <div class="row">
+                                        <div class="col-md-4 col-xs-4 p-r-0 text-center homecalsiconwrap">
+                                            <div class="homecalsicon">
+                                                <img src="{{ base_url() }}/assets/Content/themes/img/emerfund.png">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8 col-xs-8 homecalstitle">
+                                            <h3>Emergency Fund</h3>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane tab-pane-homecal active" id="rt">
+                            <div class="homecalsec">
+                                <form name="rtform" ng-app="app" id="homecalsecFormMain">
+                                    <h4 class="homecalstophead text-center m-t-5 m-b-20">Plan to Retire Smart</h4>
+                                    <div id="owl-example" class="owl-carousel nav-tabs-cstm2" role="tablist">
+                                        <li role="presentation" class="active">
+                                            <div class="howitconts text-center">
+                                                <ng-form name="rtSubForm1">
+                                                    <h3 class="m-b-20 text-center homecalsinput">
+                                                        
+                                                        <span>I am</span>
+                                                        <span class="pos-rel">
+                                                            <input class="input-cstm-homecals" data-ng-minlength="2" maxlength="2" data-ng-maxlength="2" name="curAge" placeholder="30" data-ng-model="retirement.curAge" pattern="^[0-9]*$" required numbers-only />
+                                                            <span style="position: absolute; min-width: 255px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="rtSubForm1.curAge.$dirty && !IsRetirementcurrentAgeValid()">Age must be between 18 and 65</span>
+                                                        </span>
+                                                        <span>years old.</span><br><br />
+                                                        <span>I want to retire at age</span>
+                                                        <span class="pos-rel">
+                                                            <input class="input-cstm-homecals last_input " name="retAge" data-ng-minlength="2" data-ng-maxlength="2" maxlength="2" pattern="^[0-9]*$" placeholder="65" data-ng-model="retirement.retAge" required numbers-only />
+                                                            <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="!IsRetirementAgeValid() && rtSubForm1.retAge.$dirty">Retirement age should be less than 65, and diffrence b/w current age and retirement age must be between 2 and 60</span>
+                                                            <span></span>
+                                                        </span>.
+                                                    </h3>
+                                                    <br>
+                                                    <br>
+                                                    <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin test" id="sdsd" data-ng-disabled="rtSubForm1.$invalid || !IsRetirementcurrentAgeValid() || !IsRetirementAgeValid()" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Retirement Start', eventLabel: 'Click', eventValue: 0});"><i class="fa fa-angle-double-right"></i></button>
+                                                </ng-form>
+                                            </div>
+                                        </li>
+                                        <li role="presentation">
+                                            <div class="howitconts text-center">
+                                                <ng-form name="rtSubForm2">
+                                                    <h3 class="m-b-20 text-center homecalsinput">
+                                                        <span>After retirement, I want to cover my expenses till I’m </span>
+                                                        <span class="pos-rel">
+                                                            <input class="input-cstm-homecals" name="life_expect" placeholder="70" maxlength="2" data-ng-model="retirement.life_expect" required numbers-only />
+                                                            <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="rtSubForm2.life_expect.$dirty && retirement.life_expect < 70">Life expectancy should be set to minium 70 years</span>
+                                                        </span>
+                                                        <span>years of age.</span><br><br>
+                                                        <span>I currently spend <i class="fa fa-rupee"></i></span>
+                                                        <span class="pos-rel">
+                                                            <input class="incm-input-homecals last_input" name="ret_current_spend" data-ng-maxlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="40,000" data-ng-model="retirement.monthly_expense" required numbers-only format />
+                                                            <span style="min-width: 200px!important;" class="error" data-ng-show="rtSubForm2.ret_current_spend.$dirty && rtSubForm2.ret_current_spend.$error.required">Current Spending Required</span>
+                                                            <span style="min-width: 240px ! important;" class="error" data-ng-show="rtSubForm2.ret_current_spend.$dirty  &&   rtSubForm2.ret_current_spend.$error.maxlength ||  rtSubForm2.ret_current_spend.$error.pattern">Amount must be Number only</span>
+                                                            <span class="error" style="min-width: 200px;" data-ng-show="rtSubForm2.ret_current_spend.$dirty && retirement.monthly_expense.length > 0 && retirement.monthly_expense < 1000">Amount should be minimum 1000</span>
+                                                            <span class="error" style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" data-ng-show="rtSubForm2.ret_current_spend.$dirty && retirement.monthly_expense.length > 0 && retirement.monthly_expense > 1000 && (retirement.monthly_expense % 500) != 0">Amount should be in multiples of 500</span>
+
+                                                        </span>
+                                                        <span>per month.</span>
+                                                    </h3>
+                                                    <br>
+                                                    <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                                                    <button type="button" class="btn fordisableds join-btn getgoingbtn homecalcontin" data-ng-disabled="retirement.monthly_expense < 1000 || (retirement.monthly_expense % 500) != 0 || rtSubForm2.$invalid || retirement.life_expect < retirement.retAge || retirement.life_expect < 70"><i class="fa fa-angle-double-right"></i></button>
+                                                </ng-form>
+                                            </div>
+                                        </li>
+                                        <li role="presentation">
+                                            <div class="howitconts text-center">
+                                                <ng-form name="rtSubForm3">
+                                                    <h3 class="m-b-20 text-center homecalsinput">
+                                                        <span>
+                                                            I am willing to invest
+                                                        <span style="display:none;" data-ng-bind="retirement.planName"></span>
+                                                        <span></span> <i class="fa fa-rupee"></i>
+                                                    </span>
+                                                    <span class="pos-rel">
+                                                        <input class="incm-input-homecals" data-ng-maxlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="25,000" name="monthly_contri" data-ng-model="retirement.monthly_contri" required numbers-only format />
+                                                        <span style="min-width: 200px!important;" class="error" data-ng-show="rtSubForm3.monthly_contri.$dirty && rtSubForm3.monthly_contri.$error.required">Current Spending Required</span>
+                                                        <span style="min-width: 240px ! important;" class="error" data-ng-show="rtSubForm3.monthly_contri.$dirty  &&  rtSubForm3.monthly_contri.$error.maxlength || rtSubForm3.monthly_contri.$error.pattern">Amount must be Number only</span>
+                                                        <span class="error" data-ng-show="rtSubForm3.monthly_contri.$dirty && retirement.monthly_contri > 1000 && (retirement.monthly_contri % 500) != 0">Amount should be in multiples of 500</span>
+                                                        <span class="error" style="min-width: 200px;" data-ng-show="rtSubForm3.monthly_contri.$dirty && retirement.monthly_contri.length > 0 && retirement.monthly_contri < 1000">Amount should be minimum 1000</span>
+                                                    </span>
+                                                    <span>monthly towards <span data-ng-bind="retirement.planName" style=""></span> and also</span><br>
+                                                    <span>I have already set aside <i class="fa fa-rupee"></i></span>
+                                                    <span class="pos-rel">
+                                                        <input class="incm-input-homecals last_input" data-ng-maxlength="10" maxlength="10" pattern="^[0-9]*$" placeholder="5,00,000" name="lumpsum" data-ng-model="retirement.lumpsum" required numbers-only format /><span></span>
+                                                        <span style="min-width: 168px!important;" class="error" data-ng-show="rtSubForm3.lumpsum.$dirty && rtSubForm3.lumpsum.$error.required">Current Spending Required</span>
+                                                        <span style="min-width: 225px ! important;" class="error" data-ng-show="rtSubForm3.lumpsum.$dirty  &&  rtSubForm3.lumpsum.$error.maxlength || rtSubForm3.lumpsum.$error.pattern">Amount must be Number only</span>
+                                                        <span style="min-width: 225px ! important;" class="error" data-ng-show="rtSubForm3.lumpsum.$dirty  && retirement.lumpsum != 0 && (retirement.lumpsum % 500) != 0">Amount should be in multiples of 500</span>
+                                                    </span>
+                                                    <span class="error" data-ng-show="rtform.lumpsum.$error.pattern">invalid input</span>
+                                                </h3>
+                                                <br>
+                                                <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                                                
+                                                <button type="button" class="btn btn-submit fordisableds join-btn getgoingbtn " data-ng-disabled="retirement.monthly_contri < 1000 || (retirement.monthly_contri % 500) != 0 || (retirement.lumpsum % 500) != 0 || rtSubForm3.$invalid" data-ng-click="onRetirementSubmit();" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Retirement Submit', eventLabel: 'Click', eventValue: 0});">Submit</button></>
+                                            </ng-form>
+                                        </div>
+                                    </li>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane tab-pane-homecal" id="emefun">
+                        <div class="homecalsec">
+                            <h4 class="homecalstophead text-center m-t-5 m-b-20">
+                                Emergency Fund
+                            </h4>
+                            <div id="owl-emerfund" class="owl-carousel nav-tabs-cstm2" role="tablist">
+                                <li role="presentation" class="active">
+                                    <div class="howitconts text-center">
+                                        <ng-form name="emerfundSubForm1">
+                                            <h3 class="m-b-20 text-center homecalsinput">
+                                                
+                                                <span>My current monthly expenses including EMIs <i class="fa fa-rupee"></i></span>
+                                                <span class="pos-rel">
+                                                    <input class="incm-input-homecals last_input" pattern="^[0-9]*$" maxlength="10" name="curexp" data-ng-model="emergencyfund.CurrentMonthlyExpensesIncludingEMI" placeholder="40,000" required format numbers-only>
+                                                    <span></span>
+                                                    <span style="min-width: 205px!important;" class="error" data-ng-show="emerfundSubForm1.curexp.$dirty && emerfundSubForm1.curexp.$error.required">Current Expenses Required</span>
+                                                    <span style="min-width: 200px ! important;" class="error" data-ng-show="emerfundSubForm1.curexp.$dirty  &&  emerfundSubForm1.curexp.$error.maxlength || emerfundSubForm1.curexp.$error.pattern">Amount must be Number only</span>
+                                                    <span class="error" style="min-width: 200px;" data-ng-show="emerfundSubForm1.curexp.$dirty && emergencyfund.CurrentMonthlyExpensesIncludingEMI.length > 0 && emergencyfund.CurrentMonthlyExpensesIncludingEMI <= 0">Amount should be greater than zero</span>
+                                                    <span class="error" style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" data-ng-show="emerfundSubForm1.curexp.$dirty && (emergencyfund.CurrentMonthlyExpensesIncludingEMI % 500) != 0 && emergencyfund.CurrentMonthlyExpensesIncludingEMI > 0">Amount should be in multiples of 500</span>
+                                                </span>
+                                            </h3>
+                                            <br>
+                                            <br>
+                                            <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="emergencyfund.CurrentMonthlyExpensesIncludingEMI <= 0 || emerfundSubForm1.$invalid || (emergencyfund.CurrentMonthlyExpensesIncludingEMI % 500) != 0"><i class="fa fa-angle-double-right"></i></button>
+                                        </ng-form>
+                                    </div>
+                                </li>
+                                <li role="presentation">
+                                    <div class="howitconts text-center">
+                                        <ng-form name="emerfundSubForm2">
+                                            <h3 class="m-b-20 text-center homecalsinput">
+                                                <span>I want to realize <span style="" data-ng-bind="emergencyfund.PlanName"></span> by</span>
+
+                                                <span class="pos-rel">
+                                                    <input class="incm-input-homecals last_input" name="emerfuntime" pattern="^[0-9]*$" maxlength="2" placeholder="5" data-ng-model="emergencyfund.PeriodOfEmergencyFund" required>
+
+                                                    <span style="min-width: 205px!important;" class="error" data-ng-show="emerfundSubForm2.emerfuntime.$dirty && emerfundSubForm2.emerfuntime.$error.required">Year(s) Required</span>
+                                                    <span class="error" style="position: absolute; line-height: 15px; top: 33px; min-width: 205px ! important;" data-ng-show="emerfundSubForm2.emerfuntime.$dirty && emerfundSubForm2.emerfuntime.$error.pattern && emergencyfund.PeriodOfEmergencyFund.length > 0 && emergencyfund.PeriodOfEmergencyFund < 2 || emergencyfund.PeriodOfEmergencyFund > 60">Time to goal should be b/w 2 &amp; 60 years</span>
+                                                </span>
+                                                <span>years.</span>
+                                                <span style="display:none;" data-ng-bind="emergencyfund.PlanName"></span> 
+                                                </span>
+                                            </h3>
+                                            <br>
+                                            <br>
+                                            <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                                            <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="emergencyfund.PeriodOfEmergencyFund < 2 || emergencyfund.PeriodOfEmergencyFund > 60 || emerfundSubForm2.$invalid"><i class="fa fa-angle-double-right"></i></button>
+                                        </ng-form>
+                                    </div>
+                                </li>
+                                <li role="presentation">
+                                    <div class="howitconts text-center">
+                                        <ng-form name="emerfundSubForm3">
+                                            <h3 class="m-b-20 text-center homecalsinput">
+                                                <span>
+                                                    I am willing to invest
+
+                                                    <span style="display:none;" data-ng-bind="emergencyfund.PlanName"></span> <span></span><i class="fa fa-rupee"></i>
+                                                </span>
+                                                <span class="pos-rel">
+                                                    <input class="incm-input-homecals" placeholder="25,000" name="investwill" pattern="^[0-9]*$" maxlength="10" data-ng-model="emergencyfund.MonthlyContributionAmount" required format numbers-only>
+                                                    <span style="min-width: 200px!important;" class="error" data-ng-show="emerfundSubForm3.investwill.$dirty && emerfundSubForm3.investwill.$error.required">Invesment Required</span>
+                                                    <span style="min-width: 245px ! important;" class="error" data-ng-show="emerfundSubForm3.investwill.$dirty  &&  emerfundSubForm3.investwill.$error.maxlength || emerfundSubForm3.investwill.$error.pattern">Amount must be Number only</span>
+                                                    <span class="error" style="min-width: 200px;" data-ng-show="emerfundSubForm3.investwill.$dirty && emergencyfund.MonthlyContributionAmount.length > 0 && emergencyfund.MonthlyContributionAmount < 1000">Amount should be minimum 1000</span>
+                                                    <span class="error" data-ng-show="emerfundSubForm3.investwill.$dirty && emergencyfund.MonthlyContributionAmount > 1000 && (emergencyfund.MonthlyContributionAmount % 500) != 0">Amount should be in multiples of 500</span>
+                                                </span>
+                                                <span>monthly towards </span><br>
+                                                <span><span style="" data-ng-bind="emergencyfund.PlanName"></span> and also</span>
+                                                <span>I have already set aside <i class="fa fa-rupee"></i></span>
+                                                <span class="pos-rel">
+                                                    <input class="incm-input-homecals last_input" name="lumpsum" pattern="^[0-9]*$" data-ng-model="emergencyfund.CurrentSaving" placeholder="5,00,000" required>
+                                                    <span></span>
+                                                    <span style="min-width: 168px!important;" class="error" data-ng-show="emerfundSubForm3.lumpsum.$dirty && emerfundSubForm3.lumpsum.$error.required">Amount Required</span>
+                                                    <span style="min-width: 225px ! important;" class="error" data-ng-show="emerfundSubForm3.lumpsum.$dirty  &&  emerfundSubForm3.lumpsum.$error.maxlength || emerfundSubForm3.lumpsum.$error.pattern">Amount must be Number only</span>
+                                                    <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="emerfundSubForm3.lumpsum.$dirty  && !emerfundSubForm3.lumpsum.$error.required && (emergencyfund.CurrentSaving % 500) != 0 && emergencyfund.CurrentSaving != 0">Amount should be in multiples of 500</span>
+                                                </span>
+                                            </h3>
+                                            <br>
+                                            <br>
+                                            <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                                            
+                                            <button type="button" class="btn btn-submit join-btn getgoingbtn fordisableds" data-ng-disabled="emergencyfund.MonthlyContributionAmount < 1000 || (emergencyfund.MonthlyContributionAmount % 500) != 0 || (emergencyfund.CurrentSaving % 500) != 0 || emerfundSubForm3.$invalid" data-ng-click="onEmergencyFundSubmit();" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Emergency Submit', eventLabel: 'Click', eventValue: 0});">Submit</button>
+                                        </ng-form>
+                                    </div>
+                                </li>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    <div role="tabpanel" class="tab-pane tab-pane-homecal" id="edu">
+                        <div name="edu">
+                            <h4 class="homecalstophead text-center m-t-5 m-b-20">Fuel your Kids’ Education</h4>
+                            <div id="owl-education" class="owl-carousel nav-tabs-cstm2" role="tablist">
+                                <li role="presentation" class="active">
+                                    <div class="howitconts text-center">
+                                        <ng-form name="eduSectionOne">
+                                            <h3 class="m-b-20 text-center homecalsinput">
+                                                <span>My child is </span>
+                                                    <span class="pos-rel">
+                                                        <input class="input-cstm-homecals" name="curAge" data-ng-maxlength="2" maxlength="2" ng-model="education.ChildAge" pattern="^[0-9]*$" placeholder="4" required numbers-only />
+                                                        <span style="min-width: 168px!important;" class="error" data-ng-show="eduSectionOne.curAge.$dirty && eduSectionOne.curAge.$error.required">Age is Required</span>
+                                                        <span style="min-width: 205px ! important;" class="error" data-ng-show="eduSectionOne.curAge.$dirty  && eduSectionOne.curAge.$error.pattern || eduSectionOne.curAge.$error.maxlength">Age must be a number max two digit</span>
+                                                        <span class="error" style="min-width: 200px;" data-ng-show="eduSectionOne.curAge.$dirty && education.ChildAge.length > 0 && education.ChildAge <= 0">Age should be greater than zero</span>
+                                                    </span>
+                                                    <span>years old</span>
+                                                    <span>and will start higher education at the age of </span>
+                                                    <span class="pos-rel">
+                                                        <input class="input-cstm-homecals last_input" name="edustartage" data-ng-maxlength="2" maxlength="2" pattern="^[0-9]*$" ng-model="education.HigherChildAge" placeholder="19" required numbers-only>
+                                                        <span></span>
+
+                                                        <span style="position: absolute; min-width: 175px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="!IsEducationstartageValid() && eduSectionOne.edustartage.$dirty || eduSectionOne.edustartage.$error.pattern">Time to Higher education should lie b/w 2 &amp; 60</span>
+                                                    </span>
+                                                </h3>
+                                                <br>
+                                                <br>
+                                                <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="education.ChildAge <= 0 || eduSectionOne.$invalid || !IsEducationstartageValid()"><i class="fa fa-angle-double-right"></i></button>
+                                            </ng-form>
+                                        </div>
+                                    </li>
+                                    <li role="presentation">
+                                        <div class="howitconts text-center">
+                                            <ng-form name="eduSectionTwo">
+                                                <h3 class="m-b-20 text-center homecalsinput">
+                                                    <span>I think the current cost of education </span><br>
+                                                    <span class="pos-rel">
+                                                        <span>is</span> <i class="fa fa-rupee"></i>
+                                                        <input class="incm-input-homecals last_input" data-ng-maxlength="10" maxlength="10" placeholder="25,000" pattern="^[0-9]*$" data-ng-model="education.HigherEducationCost" name="currentcost" required numbers-only format />
+                                                        <span></span>
+
+                                                        <span style="min-width: 200px!important;" class="error" data-ng-show="eduSectionTwo.currentcost.$dirty && eduSectionTwo.currentcost.$error.required">Current Cost Required</span>
+                                                        <span style="min-width: 275px ! important;" class="error" data-ng-show="eduSectionTwo.currentcost.$dirty  &&  eduSectionTwo.currentcost.$error.maxlength || eduSectionTwo.currentcost.$error.pattern">Amount must be Number only</span>
+                                                        <span class="error" style="min-width: 265px;" data-ng-show="eduSectionTwo.currentcost.$dirty && education.HigherEducationCost.length > 0 && education.HigherEducationCost < 1000">Amount should be minimum 1000</span>
+                                                        <span class="error" style="min-width: 265px;" data-ng-show="eduSectionTwo.currentcost.$dirty && education.HigherEducationCost.length > 0 && education.HigherEducationCost > 1000 && (education.HigherEducationCost % 500) != 0">Amount should be in multiples of 500</span>
+                                                    </span>
+                                                </h3>
+                                                <br>
+                                                <br>
+                                                <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                                                <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="education.HigherEducationCost < 1000 || (education.HigherEducationCost % 500) != 0 || eduSectionTwo.$invalid"><i class="fa fa-angle-double-right"></i></button>
+                                            </ng-form>
+                                        </div>
+                                    </li>
+                                    <li role="presentation">
+                                        <div class="howitconts text-center">
+                                            <ng-form name="eduSectionThree">
+                                                <h3 class="m-b-20 text-center homecalsinput">
+                                                    <span>I am willing to invest </span><span style="display:none;
+" data-ng-bind="education.PlanName"></span> <i class="fa fa-rupee"></i>
+<span class="pos-rel">
+    <input class="incm-input-homecals" data-ng-maxlength="10" maxlength="10" placeholder="25,000" pattern="^[0-9]*$" data-ng-model="education.MonthlyInvestValue" name="monthly_contri" required numbers-only format />
+    <span style="min-width: 200px!important;" class="error" data-ng-show="eduSectionThree.monthly_contri.$dirty && eduSectionThree.monthly_contri.$error.required">Current Spending Required</span>
+    <span style="min-width: 270px ! important;" class="error" data-ng-show="eduSectionThree.monthly_contri.$dirty  &&  eduSectionThree.monthly_contri.$error.maxlength || eduSectionThree.monthly_contri.$error.pattern">Amount must be Number only</span>
+    <span class="error" style="min-width: 200px;" data-ng-show="eduSectionThree.monthly_contri.$dirty && education.MonthlyInvestValue.length > 0 && education.MonthlyInvestValue < 1000">Amount should be minimum 1000</span>
+    <span class="error" data-ng-show="eduSectionThree.monthly_contri.$dirty && education.MonthlyInvestValue > 1000 && (education.MonthlyInvestValue % 500) != 0">Amount should be in multiples of 500</span>
+</span>
+<span>monthly towards <span style="" data-ng-bind="education.PlanName"></span> and</span><br>
+<span>also I have already set aside </span><i class="fa fa-rupee"></i>
+<span class="pos-rel">
+    <input class="incm-input-homecals last_input" data-ng-maxlength="10" maxlength="10" placeholder="25,000" name="lumpsum" pattern="^[0-9]*$" data-ng-model="education.AlreadySavedValue" required format numbers-only />
+    <span></span>
+
+    <span style="min-width: 200px!important;" class="error" data-ng-show="eduSectionThree.lumpsum.$dirty && eduSectionThree.lumpsum.$error.required">Lumpsum Required</span>
+    <span style="min-width: 225px ! important;" class="error" data-ng-show="eduSectionThree.lumpsum.$dirty  &&  eduSectionThree.lumpsum.$error.maxlength || eduSectionThree.lumpsum.$error.pattern">Amount must be Number only</span>
+    <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="eduSectionThree.lumpsum.$dirty && !eduSectionThree.lumpsum.$error.required  && education.AlreadySavedValue != 0 && (education.AlreadySavedValue % 500) != 0">Amount should be in multiples of 500</span>
+</span>
+</h3>
+<br>
+<br>
+<button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+
+<button type="button" class="btn btn-submit fordisableds join-btn getgoingbtn " data-ng-disabled="education.MonthlyInvestValue < 1000 || (education.MonthlyInvestValue % 500) != 0 || (education.AlreadySavedValue % 500) != 0 || eduSectionThree.$invalid" data-ng-click="onEducationSubmit(1);" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Education Submit', eventLabel: 'Click', eventValue: 0});">Submit</button>
+</ng-form>
+</div>
+</li>
+</div>
+</div>
+</div>
+<div role="tabpanel" class="tab-pane tab-pane-homecal" id="wedd">
+    <form name="wedd" ng-app="app">
+        <h4 class="homecalstophead text-center m-t-5 m-b-20 weddhead">Make Your Dream of Beautiful Wedding Happen</h4>
+        <div id="owl-wedding" class="owl-carousel nav-tabs-cstm2" role="tablist">
+            <li role="presentation" class="active">
+                <div class="howitconts text-center">
+                    <ng-form name="weddSubForm1">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            
+                            <span>Current Age of My Child is</span>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals" name="curAge" data-ng-maxlength="2" maxlength="2" placeholder="10" pattern="^[0-9]*$" data-ng-model="wedding.crrrAge" required numbers-only />
+                                <span style="min-width: 168px!important;" class="error" data-ng-show="weddSubForm1.curAge.$dirty && weddSubForm1.curAge.$error.required">Current age required</span>
+                                <span class="error" style="min-width: 245px;" data-ng-show="weddSubForm1.curAge.$dirty && wedding.crrrAge.length > 0 && !IsCurrentAgeOfMarriageIsValid()">Should be between 02 and 58 years</span>
+                            </span><span>years.</span><br>
+                            <span>Expected Age of Marriage is</span>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals last_input" name="expectedtime" data-ng-maxlength="2" maxlength="2" placeholder="30" pattern="^[0-9]*$" data-ng-model="wedding.years" required numbers-only />
+                                <span style="position: absolute; min-width: 168px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="weddSubForm1.expectedtime.$dirty && weddSubForm1.expectedtime.$error.required">Expected age is required</span>
+                                <span style="position: absolute; min-width: 168px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="weddSubForm1.expectedtime.$dirty && wedding.years.length > 0 && !IsExpectedAgeOfMarriageIsValid()">Expected age of marriage should be between 18 and 60 years with greater than current age</span>
+                                <span style="min-width: 205px ! important;" class="error" data-ng-show="weddSubForm1.expectedtime.$dirty  && weddSubForm1.expectedtime.$error.pattern || weddSubForm1.expectedtime.$error.maxlength">Age must be a number max two digit</span>
+                            </span>
+                            <span></span><br>
+                        </h3>
+                        <br>
+                        <br>
+                        <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="!IsCurrentAgeOfMarriageIsValid() || !IsExpectedAgeOfMarriageIsValid() || weddSubForm1.$invalid"><i class="fa fa-angle-double-right"></i></button>
+                    </ng-form>
+                </div>
+            </li>
+            <li role="presentation">
+                <div class="howitconts text-center">
+                    <ng-form name="weddSubForm2">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            <span>The cost of a similar wedding today excluding gold &amp; jewellery would be </span><i class="fa fa-rupee"></i>
+                            <span class="pos-rel">
+                                <input class="incm-input-homecals last_input" name="todaycost" data-ng-maxlength="13" maxlength="13" placeholder="10,00,000" pattern="^[0-9]*$" data-ng-model="wedding.cost" required format numbers-only />
+                                <span></span>
+                                <span style="min-width: 200px!important;" class="error" data-ng-show="weddSubForm2.todaycost.$dirty && weddSubForm2.todaycost.$error.required">Cost of wedding required</span>
+                                <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="weddSubForm2.todaycost.$dirty  && weddSubForm2.todaycost.$error.minlength ||  weddSubForm2.todaycost.$error.maxlength || weddSubForm2.todaycost.$error.pattern">
+                                    Amount must be Number only
+                                </span>
+                                <span class="error" style="min-width: 200px;" data-ng-show="weddSubForm2.todaycost.$dirty && wedding.cost.length > 0 && wedding.cost < 1000">Amount should be minimum 1000</span>
+                                <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="weddSubForm2.todaycost.$dirty && wedding.cost.length > 0 && wedding.cost > 1000 && (wedding.cost % 500) != 0">Amount should be in multiples of 500</span>
+                            </span>
+                            .
+                        </h3>
+                        <br>
+                        <br>
+                        <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                        <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="wedding.cost < 1000 || (wedding.cost % 500) != 0 || weddSubForm2.$invalid"><i class="fa fa-angle-double-right"></i></button>
+                    </ng-form>
+                </div>
+            </li>
+            <li role="presentation">
+                <div class="howitconts text-center">
+                    <ng-form name="weddSubForm3">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            <span>
+                                I can invest
+                            <span style="display:none;" data-ng-bind="wedding.planName"></span> <span></span><i class="fa fa-rupee"></i>
+                        </span>
+                        <span class="pos-rel">
+                            <input class="incm-input-homecals" data-ng-maxlength="13" maxlength="13" name="caninvest" placeholder="25,000" pattern="^[0-9]*$" data-ng-model="wedding.monthly_contri" required format numbers-only />
+                            <span style="min-width: 200px!important;" class="error" data-ng-show="weddSubForm3.caninvest.$dirty && weddSubForm3.caninvest.$error.required">Current Spending Required</span>
+                            <span style="position: absolute; min-width: 237px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="weddSubForm3.caninvest.$dirty  &&  weddSubForm3.caninvest.$error.maxlength || weddSubForm3.caninvest.$error.pattern">Amount must be Number only</span>
+                            <span class="error" style="min-width: 200px;" data-ng-show="weddSubForm3.caninvest.$dirty && wedding.monthly_contri.length > 0 && wedding.monthly_contri < 1000">Amount should be minimum 1000</span>
+                            <span class="error" data-ng-show="weddSubForm3.caninvest.$dirty && wedding.monthly_contri > 1000 && (wedding.monthly_contri % 500) != 0">Amount should be in multiples of 500</span>
+                        </span>
+                        <span>monthly towards <span data-ng-bind="wedding.PlanName" style=""></span> and also</span><br>
+                        <span>I have already set aside </span><i class="fa fa-rupee"></i>
+                        <span class="pos-rel">
+                            <input style="width:" class="incm-input-homecals last_input" data-ng-maxlength="13" maxlength="13" name="setaside" placeholder="5,00,000" pattern="^[0-9]*$" data-ng-model="wedding.lumpsum" required format numbers-only />
+                            <span></span>
+                            <span style="min-width: 200px!important;" class="error" data-ng-show="weddSubForm3.setaside.$dirty && weddSubForm3.setaside.$error.required">Current Savings Required</span>
+                            <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="weddSubForm3.setaside.$dirty  && weddSubForm3.setaside.$error.maxlength || weddSubForm3.setaside.$error.pattern">Amount must be Number only</span>
+                            <span style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="weddSubForm3.setaside.$dirty  && wedding.lumpsum != 0 && (wedding.lumpsum % 500) != 0">Amount should be in multiples of 500</span>
+                        </span>
+                    </h3>
+                    <br>
+                    <br>
+                    <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                    
+                    <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="wedding.monthly_contri < 1000 || (wedding.monthly_contri % 500) != 0 || (wedding.lumpsum % 500) != 0 || weddSubForm3.$invalid"><i class="fa fa-angle-double-right"></i></button>
+                </ng-form>
+            </div>
+        </li>
+        <li role="presentation">
+            <div class="howitconts text-center">
+                <ng-form name="weddSubForm4">
+                    <h3 class="m-b-20 text-center homecalsinput">
+                        <span>I want to buy</span>
+                        <span class="pos-rel">
+                            <input class="input-cstm-homecals" name="gramgold" placeholder="30" maxlength="3" pattern="^[0-9]*$" data-ng-model="wedding.gold" required numbers-only>
+                            <span style="min-width: 168px!important;" class="error" data-ng-show="weddSubForm4.gramgold.$dirty && weddSubForm4.gramgold.$error.required">Grams of Gold Required</span>
+                            <span style="min-width: 168px ! important;" class="error" data-ng-show="weddSubForm4.gramgold.$dirty  && weddSubForm4.gramgold.$error.pattern">Input must be number</span>
+                        </span>
+                        </span>
+                        <span>grams of gold</span>
+                    </h3>
+                    <br>
+                    <br>
+                    <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                    <button type="button" class="btn btn-submit join-btn getgoingbtn fordisableds " data-ng-disabled="weddSubForm4.$invalid" data-ng-click="onWeddingSubmit();" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Wedding Submit', eventLabel: 'Click', eventValue: 0});">Submit</button>
+                </ng-form>
+            </div>
+        </li>
+    </div>
+</form>
+</div>
+<div role="tabpanel" class="tab-pane tab-pane-homecal" id="getwelt">
+    <form name="getwelt">
+        <h4 class="homecalstophead text-center m-t-5 m-b-20">Get Rich!!</h4>
+        <div id="owl-getwlth" class="owl-carousel nav-tabs-cstm2" role="tablist">
+            <li role="presentation" class="active">
+                <div class="howitconts text-center">
+                    <ng-form name="getweltSubForm1">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            <span>I know </span>
+                            <span class="select-wrap" style="max-width:345px !important;">
+                                <select class="incm-input-homecals getweltselect" style="width: 362px; font-size: 21px ! important;" placeholder="E.g. Magic Plan" ng-model="getwealthy.type">
+                                    <option value="1">Monthly Investment Amount</option>
+                                    <option value="2">Corpus Required</option>
+                                </select>
+                                <span class="caret"></span>
+
+                            </span><span></span>
+                            <br><br>
+                            
+                            <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="getweltSubForm1.$invalid"><i class="fa fa-angle-double-right"></i></button>
+                    </ng-form>
+                </div>
+            </li>
+            <li role="presentation">
+                <div class="howitconts text-center" ng-show="getwealthy.type == 1">
+                    <ng-form name="getweltSubForm2">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            <span>I am willing to invest </span><i class="fa fa-rupee"></i>
+                            <span class="pos-rel">
+                                <input class="incm-input-homecals" placeholder="25,000" name="investwill" data-ng-maxlength="10" maxlength="10" data-placeholder="25,000" pattern="^[0-9]*$" data-ng-model="getwealthy.monthly_contri" required numbers-only format />
+                                <span style="min-width: 200px!important;" class="error" data-ng-show="getweltSubForm2.investwill.$dirty && getweltSubForm2.investwill.$error.required">Invesment Required</span>
+                                <span style="min-width: 225px ! important;" class="error" data-ng-show="getweltSubForm2.investwill.$dirty  &&  getweltSubForm2.investwill.$error.maxlength || getweltSubForm2.investwill.$error.pattern">Amount must be a Number only</span>
+                                <span class="error" style="min-width: 215px;" data-ng-show="getweltSubForm2.investwill.$dirty && getwealthy.monthly_contri.length > 0 && getwealthy.monthly_contri < 1000">Amount should be minimum 1000</span>
+                                <span class="error" data-ng-show="getweltSubForm2.investwill.$dirty && getwealthy.monthly_contri > 1000 && (getwealthy.monthly_contri % 500) != 0">Amount should be in multiples of 500</span>
+                            </span>
+                            <span>monthly for</span><br>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals" placeholder="15" data-ng-maxlength="2" maxlength="2" name="foryears" pattern="^[0-9]*$" data-ng-model="getwealthy.invest_for_years" required>
+                                <span style="min-width: 168px!important;" class="error" data-ng-show="getweltSubForm2.foryears.$dirty && getweltSubForm2.foryears.$error.required">Years Required</span>
+                                <span style="min-width: 220px ! important;" class="error" data-ng-show="getweltSubForm2.foryears.$dirty  && getweltSubForm2.foryears.$error.pattern || getwealthy.invest_for_years > 60 || getwealthy.invest_for_years < 2">Year must be a number min 2 &amp; max 60</span>
+                            </span>
+                            <span>years. I can increment my monthly</span><br>
+                            <span>investment by </span><i class="fa fa-rupee"></i>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals last_input" style="width: 125px ! important;" name="age" data-ng-maxlength="10" maxlength="10" placeholder="15000" pattern="^[0-9]*$" data-ng-model="getwealthy.years_sip" required numbers-only format />
+                                <span style="min-width: 225px!important;" class="error" data-ng-show="getweltSubForm2.age.$dirty && getweltSubForm2.age.$error.required">Invesment Required</span>
+                                <span style="position: absolute; min-width: 225px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="getweltSubForm2.age.$dirty  &&  getweltSubForm2.age.$error.maxlength || getweltSubForm2.age.$error.pattern">Amount must be a Number only</span>
+                                <span style="position: absolute; min-width: 225px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="getweltSubForm2.age.$dirty  &&  !getweltSubForm2.age.$error.required && (getwealthy.years_sip % 500) != 0 && getwealthy.years_sip != 0">Amount should be in multiples of 500</span>
+                            </span>
+                            <span>after every year.</span>
+                        </h3>
+                        <br>
+                        <br>
+                        <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                        <button type="button" class="btn btn-submit join-btn getgoingbtn fordisableds " data-ng-disabled="getwealthy.invest_for_years < 2 || getwealthy.invest_for_years > 60 || getwealthy.monthly_contri < 1000 || (getwealthy.monthly_contri % 500) != 0 || (getwealthy.years_sip % 500) != 0 || getweltSubForm2.$invalid" data-ng-click="onGetwealthySubmit();">Submit</button>
+                    </ng-form>
+                </div>
+                <div class="howitconts text-center" ng-show="getwealthy.type == 2">
+                    <ng-form name="getweltSubForm3">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            <span>I need </span><i class="fa fa-rupee"></i>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals" style="width: 150px" name="investwill" data-ng-maxlength="10" maxlength="10" placeholder="1,00,00,000" pattern="^[0-9]*$" data-ng-model="getwealthy.corpus" required numbers-only format />
+                                <span style="min-width: 250px!important;" class="error" data-ng-show="getweltSubForm3.investwill.$dirty && getweltSubForm3.investwill.$error.required">Invesment Required</span>
+                                <span style="position: absolute; min-width: 153px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="getweltSubForm3.investwill.$dirty  &&  getweltSubForm3.investwill.$error.maxlength || getweltSubForm3.investwill.$error.pattern">Amount must be a Number only</span>
+                                <span class="error" style="min-width: 245px;" data-ng-show="getweltSubForm3.investwill.$dirty && getwealthy.corpus.length > 0 && getwealthy.corpus < 1000">Amount should be minimum 1000</span>
+                                <span class="error" data-ng-show="getweltSubForm3.investwill.$dirty && getwealthy.corpus > 1000 && (getwealthy.corpus % 500) != 0">Amount should be in multiples of 500</span>
+                            </span>
+                            </span>
+                            <span>in</span>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals last_input" name="foryears" data-ng-maxlength="2" maxlength="2" placeholder="30" pattern="^[0-9]*$" data-ng-model="getwealthy.years_corpus" required>
+                                <span style="min-width: 168px!important;" class="error" data-ng-show="getweltSubForm3.foryears.$dirty && getweltSubForm3.foryears.$error.required">Years Required</span>
+                                <span style="position: absolute; line-height: 15px; top: 33px; min-width: 130px ! important; left: -23px;" class="error" data-ng-show="getweltSubForm3.foryears.$dirty  && getweltSubForm3.foryears.$error.pattern || getwealthy.years_corpus > 60 || getwealthy.years_corpus < 2">
+                                    Year must be a number min 2 &amp; max 60
+                                </span>
+                            </span>
+                            <span>years.</span>
+                        </h3>
+                        <br>
+                        <br>
+                        <button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+                        
+                        <button type="button" class="btn btn-submit join-btn getgoingbtn fordisableds" data-ng-disabled="getwealthy.years_corpus < 2 || getwealthy.years_corpus > 60 || getwealthy.corpus < 1000 || (getwealthy.corpus % 500) != 0 || getweltSubForm3.$invalid" data-ng-click="onGetwealthySubmit();" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Wealthy Submit', eventLabel: 'Click', eventValue: 0});">Submit</button>
+                    </ng-form>
+                </div>
+            </li>
+        </div>
+    </form>
+</div>
+<div role="tabpanel" class="tab-pane tab-pane-homecal" id="bigbuy">
+    <form name="bigbuy">
+        <h4 class="homecalstophead text-center m-t-5 m-b-20">Power Your Big Dreams</h4>
+        <div id="owl-bigbuy" class="owl-carousel nav-tabs-cstm2" role="tablist">
+            <li role="presentation" class="active">
+                <div class="howitconts text-center">
+                    <ng-form name="bigbuySubForm1">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            
+                            <span>I want to save</span>
+                            <span class="select-wrap" style="max-width: 195px ! important;">
+                                <select class="incm-input-homecals" id="fdrdselect" style="font-size: 20px ! important; width: 212px;" placeholder="E.g. Magic Plan" ng-init="bigbuy.BigBuyType='1'" data-ng-model="bigbuy.BigBuyType">
+                                    <option value="1">to buy a Car</option>
+                                    <option value="2">to buy Jewellery</option>
+                                    <option value="3">for Travel</option>
+                                </select>
+                                <span class="caret"></span>
+                            </span>
+                            <span>by</span>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals" name="TotalInvestmentYears" maxlength="4" placeholder="2030" data-ng-model="bigbuy.TotalInvestmentYears" required numbers-only />
+                                <span></span>
+                                <span style="position: absolute; min-width: 153px ! important; line-height: 15px; top: 33px;" class="error" data-ng-show="!IsBigbuymaturityyearValid() && bigbuySubForm1.TotalInvestmentYears.$dirty">Year must be b/w 2018 and 2050</span>
+                            </span>
+                            <br>
+                            <span>The current cost is </span><i class="fa fa-rupee"></i>
+                            <span class="pos-rel">
+                                <input class="input-cstm-homecals last_input" name="InvestmentCurrentCost" maxlength="13" placeholder="10,00,000" data-ng-model="bigbuy.InvestmentCurrentCost" style="width: 150px;" required numbers-only format />
+                                <span style="min-width: 250px!important;" class="error" data-ng-show="bigbuySubForm1.InvestmentCurrentCost.$dirty && bigbuySubForm1.InvestmentCurrentCost.$error.required">Current cost required</span>
+                                <span class="error" style="min-width: 200px;" data-ng-show="bigbuySubForm1.InvestmentCurrentCost.$dirty && bigbuy.InvestmentCurrentCost.length > 0 && bigbuy.InvestmentCurrentCost < 1000">Amount should be minimum 1000</span>
+                                <span class="error" style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" data-ng-show="bigbuySubForm1.InvestmentCurrentCost.$dirty && bigbuy.InvestmentCurrentCost.length > 0 && bigbuy.InvestmentCurrentCost > 1000 && (bigbuy.InvestmentCurrentCost % 500) != 0">Amount should be in multiples of 500</span>
+                            </span>
+                        </h3>
+                        <br>
+                        <br>
+                        <button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="bigbuy.InvestmentCurrentCost < 1000 || (bigbuy.InvestmentCurrentCost % 500) != 0 || bigbuySubForm1.$invalid || !IsBigbuymaturityyearValid();"><i class="fa fa-angle-double-right"></i></button>
+                    </ng-form>
+                </div>
+            </li>
+            <li role="presentation">
+                <div class="howitconts text-center">
+                    <ng-form name="bigbuySubForm3">
+                        <h3 class="m-b-20 text-center homecalsinput">
+                            <span>I am willing to invest </span>
+                            <span style="display:none;
+" data-ng-bind="bigbuy.GoalName"></span>  <i class="fa fa-rupee"></i>
+
+<span class="pos-rel">
+    <input class="incm-input-homecals" placeholder="25,000" maxlength="13" name="MonthlyContribution" data-ng-model="bigbuy.MonthlyContribution" required numbers-only format />
+    <span style="min-width: 200px!important;" class="error" data-ng-show="bigbuySubForm3.MonthlyContribution.$dirty && bigbuySubForm3.MonthlyContribution.$error.required">Invesment required</span>
+    <span class="error" style="min-width: 200px;" data-ng-show="bigbuySubForm3.MonthlyContribution.$dirty && bigbuy.MonthlyContribution.length > 0 && bigbuy.MonthlyContribution < 1000">Amount should be minimum 1000</span>
+    <span class="error" style="min-width: 250px;" data-ng-show="bigbuySubForm3.MonthlyContribution.$dirty && bigbuy.MonthlyContribution > 1000 && (bigbuy.MonthlyContribution % 500) != 0">Amount should be in multiples of 500</span>
+</span>
+                                                    </span>
+<span>monthly towards <span data-ng-bind="bigbuy.planName"></span> and</span><br>
+<span>
+    also I have already set aside
+</span><i class="fa fa-rupee"></i>
+<span class="pos-rel">
+    <input style="width:" class="incm-input-homecals last_input" maxlength="13" name="LumpSumAmount" placeholder="5,00,000" data-ng-model="bigbuy.LumpSumAmount" required numbers-only format />
+    <span></span>
+
+    <span style="min-width: 168px!important;" class="error" data-ng-show="bigbuySubForm3.LumpSumAmount.$dirty && bigbuySubForm3.LumpSumAmount.$error.required">Amount required</span>
+    <span class="error" style="position: absolute; min-width: 200px ! important; line-height: 15px; top: 33px;" data-ng-show="bigbuySubForm3.LumpSumAmount.$dirty && bigbuy.LumpSumAmount.length > 0 && bigbuy.LumpSumAmount != 0 && (bigbuy.LumpSumAmount % 500) != 0">Amount should be in multiples of 500</span>
+</span>
+</h3>
+<br>
+<br>
+<button type="button" tabindex="-1" class="nav-btns m-t-20 join-btn getgoingbtn homecalprev"><i class="fa fa-angle-double-left"></i></button>
+
+<button type="button" class="btn btn-submit join-btn getgoingbtn fordisableds " data-ng-disabled="bigbuy.MonthlyContribution < 1000 || (bigbuy.MonthlyContribution % 500) != 0 || (bigbuy.LumpSumAmount % 500) != 0 || bigbuySubForm3.$invalid" ng-click="onBigBuySubmit();" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Bigbuy Submit', eventLabel: 'Click', eventValue: 0});">Submit</button>
+</ng-form>
+</div>
+</li>
+</div>
+</form>
+</div>
+</div>
+</div>
+<div class="col-md-3">
+    <ul class="nav nav-tabs nav-tabs-cals" role="tablist" id="right-homecals">
+        <li role="presentation">
+            <a href="#wedd" aria-controls="wedd" role="tab" data-toggle="tab" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Wedding Start', eventLabel: 'Click', eventValue: 0});">
+                <div class="homecals">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4 p-r-0 text-center homecalsiconwrap">
+                            <div class="homecalsicon">
+                                <img src="{{ base_url() }}/assets/Content/themes/img/wedding16.png">
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 homecalstitle">
+                            <h3>Wedding</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#bigbuy" aria-controls="bigbuy" role="tab" data-toggle="tab" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Bigbuy Start', eventLabel: 'Click', eventValue: 0});">
+                <div class="homecals">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4 p-r-0 text-center homecalsiconwrap">
+                            <div class="homecalsicon">
+                                <img src="{{ base_url() }}/assets/Content/themes/img/bigbuy.png">
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 homecalstitle">
+                            <h3>Big Buy</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+        <li role="presentation">
+            <a href="#getwelt" aria-controls="getwelt" role="tab" data-toggle="tab" onClick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Wealthy Start', eventLabel: 'Click', eventValue: 0});">
+                <div class="homecals">
+                    <div class="row">
+                        <div class="col-md-4 col-xs-4 p-r-0 text-center homecalsiconwrap">
+                            <div class="homecalsicon">
+                                <img src="{{ base_url() }}/assets/Content/themes/img/getwlth.png">
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-xs-8 homecalstitle">
+                            <h3>Get Wealthy</h3>
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>
+</div>
+</section>
+<section class="m-t-50 m-b-35">
+    <div class="container">
+        <div class="row">
+            <form name="getGoingForm">
+                <div class="col-md-6 text-center homecalc">
+                    <img class="m-b-20" src="{{ base_url() }}/assets/Content/themes/img/glow.png">
+                    <h4 class="reviewhead2 text-center">Tell us about yourself</h4>
+                    <p class="text-center reviewheadp ">Your answers will help us build your personalised investment portfolio.</p>
+                    <div class="divsip m-tb-15 p-tb-5">
+                        <h3 class="m-b-30 text-center divsipcurage">
+                            <span>I am</span>
+                            <span class="pos-rel">
+                                <input class="input-cstm" name="age-input" placeholder="25" pattern="^[0-9]*$" maxlength="2" data-toggle="popover" data-ng-model="getwealthyGetGoing.MyAge" data-trigger="focus" data-placement="top" data-content="Enter your age" required />
+                                <span style="min-width: 168px!important;position: absolute; top: 40px;color: #ff7979 !important;" class="error" data-ng-show="getGoingForm.age-input.$dirty && getGoingForm.age-input.$error.required">Age is Required</span>
+                                <span style="min-width: 205px ! important;position: absolute; top: 40px;color: #ff7979 !important;" class="error" data-ng-show="getwealthyGetGoing.MyAge.length < 2">Age must be a number max two digit</span>
+                                <span class="error" style="min-width: 200px;position: absolute; top: 40px;color: #ff7979 !important;" data-ng-show="getGoingForm.age-input.$dirty && getwealthyGetGoing.MyAge.length > 0 && getwealthyGetGoing.MyAge <= 0">Age should be greater than zero</span>
+                            </span>
+                            <span>years old.</span>
+                        </h3>
+                        <h3 class="m-b-30 text-center">
+                            <span>and I can invest <i class="fa fa-rupee"></i></span>
+                            <span class="pos-rel">
+                                <input type="text" class="incm-input" name="income-input" placeholder="15,000" pattern="^[0-9]*$" maxlength="10" data-ng-model="getwealthyGetGoing.Invest" style="width:90px;" data-toggle="popover" data-trigger="focus" data-placement="top" data-content="Enter your monthly investment amount" required format numbers-only />
+                                <span style="min-width: 168px!important;position: absolute; top: 40px;color: #ff7979 !important;" class="error" data-ng-show="getGoingForm.income-input.$dirty && getGoingForm.income-input.$error.required">Amount Required</span>
+                                <span style="min-width: 225px ! important;position: absolute; top: 40px;color: #ff7979 !important;" class="error" data-ng-show="getGoingForm.income-input.$dirty  &&  getGoingForm.income-input.$error.maxlength || getGoingForm.income-input.$error.pattern">Amount must be Number only</span>
+                                <span class="error" style="min-width: 200px;position: absolute; top: 40px;color: #ff7979 !important;" data-ng-show="getwealthyGetGoing.Invest.length > 0 && getwealthyGetGoing.Invest < 1000">Amount should be minimum 1000</span>
+                                <span class="error" style="min-width: 200px;position: absolute; top: 40px;color: #ff7979 !important;" data-ng-show="getwealthyGetGoing.Invest > 1000 && (getwealthyGetGoing.Invest % 500) != 0">Amount should be in multiples of 500</span>
+                            </span>
+                            <span class="everymonthtext">every month</span>
+                        </h3>
+                    </div>
+                    <a href="#" onclick="ga('send', 'event', { eventCategory: 'Engagement', eventAction: 'Get Going', eventLabel: 'Click', eventValue: 0});"><button type="button" class="btn join-btn getgoingbtn fordisableds homecalcontin" data-ng-disabled="getwealthyGetGoing.Invest < 1000 || (getwealthyGetGoing.Invest % 500) != 0 || getwealthyGetGoing.MyAge.length < 2 || getwealthyGetGoing.MyAge <= 0 || getGoingForm.$invalid" ng-click="onGetwealthyGetGoingSubmit();">Get Going</button></a>
+                </div>
+            </form>
+            <div class="col-md-6 hiwwrap">
+                <h4 class="reviewhead2 text-center">How It Works</h4>
+                <p class="text-center reviewheadp">Learn How FinMitra Works</p>
+                <ul class="nav-tabs-cstm2" role="tablist">
+                    <li role="presentation" class="active">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-3">
+                                <img class="img-responsive howitpng" src="{{ base_url() }}/assets/Content/themes/img/Step1_Fin_goals1.png">
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-9">
+                                <a href="#" aria-controls="home" role="tab" data-toggle="tab" style="cursor:default">1. Set your financial goals</a>
+                                <ol type="a">
+                                    <li>Tell us what do you want to achieve and by when</li>
+                                    <li>Determine how much risk you would be comfortable with</li>
+                                </ol>
+                                <a href="en/home/howitworks-2.html" class="m-l-25 lmlink pull-right" onClick="ga('send', 'event', { eventCategory: 'Discovery', eventAction: 'How it Works', eventLabel: 'Click', eventValue: 0});">Learn More</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="presentation">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-3">
+                                <img class="img-responsive howitpng" src="{{ base_url() }}/assets/Content/themes/img/currency3.png">
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-9">
+                                <a href="#" aria-controls="profile" role="tab" data-toggle="tab" style="cursor:default">2. Get customized, expert investment advice. For free.</a>
+                                <ol type="a">
+                                    <li>Know in which mutual funds, Fds &amp; RDs to invest your money.</li>
+                                </ol>
+                                <a href="en/home/howitworks-2.html" class="m-l-25 lmlink pull-right" onClick="ga('send', 'event', { eventCategory: 'Discovery', eventAction: 'How it Works', eventLabel: 'Click', eventValue: 0});">Learn More</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="presentation">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-3">
+                                <img class="img-responsive howitpng" src="{{ base_url() }}/assets/Content/themes/img/plant43.png">
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-9">
+                                <a href="#" aria-controls="messages" role="tab" data-toggle="tab" style="cursor:default">3. Lay the foundation to achieve your dreams.</a>
+                                <ol type="a">
+                                    <li>Start investing with our assistance</li>
+                                    <li>
+                                        We handle everything for you: Filing and submitting KYC forms and application forms, Setting up auto debits for regular investments, Anything else that you may need.
+                                    </li>
+                                </ol>
+                                <a href="en/home/howitworks-2.html" class="m-l-25 lmlink pull-right" onClick="ga('send', 'event', { eventCategory: 'Discovery', eventAction: 'How it Works', eventLabel: 'Click', eventValue: 0});">Learn More</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li role="presentation">
+                        <div class="row">
+                            <div class="col-md-2 col-sm-2 col-xs-3">
+                                <img class="img-responsive howitpng" src="{{ base_url() }}/assets/Content/themes/img/achievement1.png">
+                            </div>
+                            <div class="col-md-10 col-sm-10 col-xs-9">
+                                <a href="#" aria-controls="settings" role="tab" data-toggle="tab" style="cursor:default">4. Progress with our performance monitoring &amp; timely recommendations.</a>
+                                <ol type="a">
+                                    <li>Rest easy, because we review your investments and take action to make sure that everything is on-track</li>
+                                </ol>
+                                <a href="en/home/howitworks-2.html" class="m-l-25 lmlink pull-right" onClick="ga('send', 'event', { eventCategory: 'Discovery', eventAction: 'How it Works', eventLabel: 'Click', eventValue: 0});">Learn More</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="new-invest-wrap">
+    <div class="container">
+        <h4 class="reviewhead2 text-center pos-rel valueprop">Value Proposition</h4>
+        <div class="row corcomsec">
+            <div class="overlay2"></div>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-badge timeline-badge-cstm1">1</div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">We help you set S.M.A.R.T financial goals</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                We help you articulate your dreams and set financial goals. Explore our empathetic goal setting platform to do this.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge timeline-badge-cstm2">2</div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Advice tailored to your unique requirements!</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                We understand that you have unique requirements and our algorithm will assess and recommend products that suit you.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-badge timeline-badge-cstm1">3</div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Deep experience in investment analysis</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                Our seasoned investment professionals do all the hard-work to make great investment recommendation.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li class="timeline-inverted">
+                    <div class="timeline-badge timeline-badge-cstm2">4</div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Friendly customer-service</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>
+                                We have a friendly customer-support team that is waiting to help you along each step of your journey with us. Get in touch (with us) via email, live chat, Whatsapp or phone.
+                            </p>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-badge timeline-badge-cstm1">5</div>
+                    <div class="timeline-panel">
+                        <div class="timeline-heading">
+                            <h4 class="timeline-title">Zero Fees!</h4>
+                        </div>
+                        <div class="timeline-body">
+                            <p>Like all the best things in life, our customized financial advice is free.</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+            <div class="valuepropbot">
+                <h1>You are a wise investor. And now, you&#39;ve found a service that’s right for you.</h1>
+                    <a class="nav-btns m-t-20 join-btn getgoingbtn" href="en/account/register.html">Invest Now</a>
+            </div>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="container">
+        <div class="row m-tb-50">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="text-center">
+                    <i class="fa fa-quote-left fa-quote-cstm"></i>
+                </div>
+                <h4 class="text-center testimonial-head">What Our Customers Think About Us</h4>
+                <div id="quote-carousel" data-ride="carousel" class="carousel slide">
+                    <!-- Bottom Carousel Indicators -->
+                    <ol class="carousel-indicators">
+                        <li data-slide-to="0" data-target="#quote-carousel" class="active">
+                            <img alt="" src="{{ base_url() }}/assets/Content/themes/img/127.jpg" class="img-responsive">
+                        </li>
+                        <li class="" data-slide-to="1" data-target="#quote-carousel" class="">
+                            <img alt="" src="{{ base_url() }}/assets/Content/themes/img/128.jpg" class="img-responsive">
+                        </li>
+                        <li data-slide-to="2" data-target="#quote-carousel" class="">
+                            <img alt="" src="{{ base_url() }}/assets/Content/themes/img/129.jpg" class="img-responsive">
+                        </li>
+                        <li data-slide-to="3" data-target="#quote-carousel" class="">
+                            <img alt="" src="{{ base_url() }}/assets/Content/themes/img/130.jpg" class="img-responsive">
+                        </li>
+                        <li data-slide-to="4" data-target="#quote-carousel" class="">
+                            <img alt="" src="{{ base_url() }}/assets/Content/themes/img/131.jpg" class="img-responsive">
+                        </li>
+                        <li data-slide-to="5" data-target="#quote-carousel" class="">
+                            <img alt="" src="{{ base_url() }}/assets/Content/themes/img/132.jpg" class="img-responsive">
+                        </li>
+                        <li data-slide-to="6" data-target="#quote-carousel" class="">
+                            <img alt="" src="{{ base_url() }}/assets/Content/themes/img/133.jpg" class="img-responsive">
+                        </li>
+                    </ol>
+                    <!-- Carousel Slides / Quotes -->
+                    <div class="carousel-inner carousel-inner-cstm text-center">
+                        <!-- Quote 1 -->
+                        <div class="item active">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-quote-left"></i> The response to our request for guidance in investment was very quick. Efficient advice was given in a simple manner that could reach out to us. We have hence invested to the tune of eight lakhs with them recently with confidence.  <i class="fa fa-quote-right"></i></p>
+                                        <small>Jayalakshmi B, 60 years, Retired PSU bank employee</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 2 -->
+                        <div class="item">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-12">
+
+                                        <p><i class="fa fa-quote-left"></i> Easy, Hassle-free quality guidance. <i class="fa fa-quote-right"></i></p>
+                                        <small>Murali Krishnan B, 29 years, Software Engineer</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 3 -->
+                        <div class="item ">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-quote-left"></i> Personalised investing that’s quick &amp; prompt. <i class="fa fa-quote-right"></i></p>
+                                        <small>Balasubramanian D, 67 years, Retired Underwriter</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 4 -->
+                        <div class="item">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-quote-left"></i> Top-notch financial advice. Super-easy investing. <i class="fa fa-quote-right"></i></p>
+                                        <small>Guruprasad B.V, 40 years, Principal Software Engineer</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 5 -->
+                        <div class="item">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-quote-left"></i> Actionable advice that’s tailored for my needs. I’m on my way to a comfortable retirement. <i class="fa fa-quote-right"></i></p>
+                                        <small>Sudha Dhandapani, 45 years, Senior Program Manager</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 6 -->
+                        <div class="item">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-quote-left"></i> Free, relevant recommendations. I’ll be using your service again. <i class="fa fa-quote-right"></i></p>
+                                        <small>Anusuya K M, 45 years, Home Maker</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                        <!-- Quote 7 -->
+                        <div class="item">
+                            <blockquote>
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <p><i class="fa fa-quote-left"></i> Investment Planning for young engineers like me: it’s awesome, cos now I can spend the rest guilt-free! <i class="fa fa-quote-right"></i></p>
+                                        <small>Harini, 22 years, Associate Tech Ed Specialist</small>
+                                    </div>
+                                </div>
+                            </blockquote>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<input type="hidden" data-ng-init="SelectedCulutureName='en'" data-ng-model="SelectedCulutureName" />
+</div>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#owl-example").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $("#owl-education").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $("#owl-wedding").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $("#owl-fdrd").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $("#owl-bigbuy").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $("#owl-riskpro").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $("#owl-emerfund").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $("#owl-getwlth").owlCarousel({
+            mouseDrag: false,
+            touchDrag: false,
+            singleItem: true,
+            rewindNav: false
+        });
+        $(".homecalcontin").click(function () {
+            var a = $(this).closest(".owl-carousel").attr("id");
+            var b = "#" + a;
+            $(b).trigger('owl.next');
+        })
+        $(".homecalprev").click(function () {
+            var a = $(this).closest(".owl-carousel").attr("id");
+            var b = "#" + a;
+            var c = $(b).trigger('owl.prev');
+            var d = c.find('input[type!=hidden]:first').focus();
+        })
+        $(".smartpop").popover({
+            trigger: 'hover',
+            placement: 'bottom',
+            html: 'true',
+            content: function () {
+                return $("#popover-content").html();
+            }
+        });
+        $('#retplan').change(function () {
+            $('#retplanop').val($(this).val());
+        });
+        $("#right-homecals li").click(function () {
+            $("#left-homecals li").removeClass('active')
+
+        });
+        $("#left-homecals li").click(function () {
+            $("#right-homecals li").removeClass('active')
+        });
+        $(".homecalcontin").keyup(function (e) {
+            var code = (e.keyCode ? e.keyCode : e.which);
+            if (code == 9) {
+                var a = $(this).closest(".owl-carousel").attr("id");
+                var b = "#" + a;
+                $(b).trigger('owl.next');
+            }
+        });
+        $(".last_input").focus(function () {
+            $(this).keydown(function (event) {
+                if (event.keyCode == 9) {
+                    var attr = $(this).closest(".howitconts").find(".homecalcontin").attr("disabled");
+                    if (typeof attr !== typeof undefined && attr !== false) {
+                        event.preventDefault();
+                    }
+                }
+            })
+        });
+        $(".btn-submit").focus(function () {
+            $(this).keydown(function (event) {
+                if (event.keyCode == 9) {
+                    var attr = $(this).closest(".howitconts").find(".homecalcontin").attr("disabled");
+                    if (typeof attr !== typeof undefined && attr !== false) {
+                        event.preventDefault();
+                    }
+                }
+            })
+        });
+        $(".homecalcontin").keydown(function (event) {
+            if (event.keyCode == 13) {
+                event.preventDefault();
+            }
+        })
+    })
+</script>
+    
+    <div class=" feedback-panel" style="height: 460px;">
+        <a href="#" data-toggle="modal" data-target="#feedback" data-backdrop="static" class="feedback-tab" >
+            <span >Feedback &amp; Support<!-- <i class="fa fa-angle-double-up arrow-custom"></i> --></span>
+        </a>
+    </div>
+    <script src="{{ base_url() }}/assets/Scripts/jquery.min.js"></script>
+    <script src="{{ base_url() }}/assets/Scripts/bootstrap.min.js"></script>
+    <script src="{{ base_url() }}/assets/Scripts/jquery.flexslider-min.js"></script>
+    <script src="{{ base_url() }}/assets/Scripts/owl.carousel.min.js"></script>
+    <script src="{{ base_url() }}/assets/Scripts/jquery.bxslider.min.js"></script>
+    <script src="{{ base_url() }}/assets/Scripts/dragdealer.js"></script>
+    <script src="{{ base_url() }}/assets/Scripts/rangeslider.js"></script>
+
+    <div id="fb-root"></div>
+    
+    {% include 'Partials/footer.twig' %}
+    {% include 'Partials/scripts.twig' %}
+
+    <!-- <script type="text/javascript" src="http://arrow.scrolltotop.com/arrow36.js"></script>
+    <noscript>Not seeing a <a href="http://www.scrolltotop.com/">Scroll to Top Button</a>? Go to our FAQ page for more info.</noscript> -->
+
+</body>
+
+<!-- Mirrored from www.finmitra.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 28 Aug 2018 17:10:57 GMT -->
+</html>

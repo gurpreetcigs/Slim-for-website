@@ -11,6 +11,6 @@ $app->get('/', function (Request $request, Response $response, array $args) {
     // Render index view
     return $this->renderer->render($response, 'index.phtml', $args);
 });
-$app->get('/demo', 'Controllers\DemoController:users');
+$app->get('/demo', \App\Controllers\DemoController::class .':users');
 
 
